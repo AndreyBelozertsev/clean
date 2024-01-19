@@ -1,0 +1,1 @@
+<div id="meeting-map-full" class="w-[800px] h-[500px]"></div>

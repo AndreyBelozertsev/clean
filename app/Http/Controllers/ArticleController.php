@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Domain\Article\Models\Article;
+
+class ArticleController extends Controller
+{
+    public function index()
+    {
+        $articles = Article::activeItems()->paginate(10);
+        return view('page.article.index',['articles' => $articles]);
+    }
+
+    public function show($slug)
+    {
+
+    }
+}

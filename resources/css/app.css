@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.icon-marker {
+    cursor: pointer;
+  
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+.ymaps3x0--marker{
+    width: 35px;
+    height: 35px;
+}
