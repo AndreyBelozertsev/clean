@@ -1,3 +1,2 @@
-<div>
-    <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
-</div>
+@dump($article)
+<a href="{{ route('article.index')  }}">Все новсти </a>

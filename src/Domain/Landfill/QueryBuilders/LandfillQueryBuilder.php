@@ -23,7 +23,7 @@ class LandfillQueryBuilder extends Builder
             ->with([
                 'category' => fn ($query) => $query
                     ->active()
-                    ->select(['id','title','slug'])
+                    ->select(['id','title','slug','thumbnail'])
             ])
             ->with([
                 'city' => fn ($query) => $query

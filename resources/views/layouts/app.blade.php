@@ -47,8 +47,25 @@
 	<!-- Site footer -->
 	<footer class="bg-brand py-8">
 		<div class="container">
+			<x-logo />
 			<div class="hidden lg:flex gap-24 pb-8">
+				@forelse ($menu->all() as $item)
+                    <li><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif"> {{ $item->label()  }}</a></li>
+                @empty
+				@endforelse
+			
 			</div>
+			<div>
+			@if(isset( $setting['vk']) )
+				<a href="{{ $setting['vk'] }}">VK</a>
+			@endif
+			@if(isset( $setting['tg']) )
+				<a href="{{ $setting['tg'] }}">TG</a>
+			@endif
+			</div>
+			@if(isset( $setting['organization']) &&  isset($setting['inn']) )
+				<p>©️  {{ $setting['organization'] . " - " . $setting['inn'] . " - " . date('Y') . ' г.' }}</p>
+			@endif
 		</div>
 	</footer>
 	@vite(['resources/js/app.js'])

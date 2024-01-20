@@ -36,7 +36,9 @@ class QuestionResource extends ModelResource
                     ->hideOnIndex(),
 
                 Image::make('Обложка','thumbnail') 
-                    ->hideOnIndex(),
+                    ->hideOnIndex()
+                    ->dir( getUploadPath('question') )
+                    ->allowedExtensions(['jpeg','png','jpg','gif','svg']),
                     
                 Switcher::make('Активный', 'status')
                     ->default(true)

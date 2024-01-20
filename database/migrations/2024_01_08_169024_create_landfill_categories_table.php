@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('landfill_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('thumbnail')->nullable();
+            $table->string('thumbnail');
             $table->string('slug')->unique();
             $table->integer('sort')->default(500)->nullable();
             $table->boolean('status')->default(true);

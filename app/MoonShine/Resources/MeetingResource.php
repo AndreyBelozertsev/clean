@@ -40,7 +40,9 @@ class MeetingResource extends ModelResource
                     ->required(),
 
                 Image::make('Обложка','thumbnail') 
-                    ->hideOnIndex(),
+                    ->hideOnIndex()
+                    ->dir( getUploadPath('meeting') )
+                    ->allowedExtensions(['jpeg','png','jpg','gif','svg']) ,
 
                 Text::make('Имя контактного лица','name'),
 

@@ -26,13 +26,15 @@ class HeroResource extends ModelResource
     {
         return [
             Block::make([
-                Text::make('ФИО','name'),
+                Text::make('ФИО','name')
+                    ->reuired(),
 
-                Image::make('Фото','thumbnail'),
+                Image::make('Фото','thumbnail')
+                    ->allowedExtensions(['jpeg','png','jpg','gif','svg']) ,
 
                 Textarea::make('Содержание','content'),
 
-                //Number::make('Баллы','score'),
+                Number::make('Баллы','score'),
                 
                 Switcher::make('Активный', 'status')
             ]),
@@ -41,6 +43,12 @@ class HeroResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'name' => ['required', 'max:200'],
+            'thumbnail' => ['sometimes','image','mimes:jpeg,png,jpg,gif,svg','max:4096','nullable'],
+            'content' => ['sometimes','string', 'nullable'],
+            'score' => ['required','integer'],
+            'status' => ['required','boolean']
+        ];
     }
 }

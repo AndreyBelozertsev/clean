@@ -33,7 +33,14 @@ class RefreshCommand extends Command
         }
         $this->call('cache:clear');
         Storage::deleteDirectory('public/files/');
-        Storage::deleteDirectory('public/images/');
+        Storage::deleteDirectory('public/images/landfill');
+        Storage::deleteDirectory('public/images/hero');
+        Storage::deleteDirectory('public/images/article');
+        Storage::deleteDirectory('public/images/hero');
+        Storage::deleteDirectory('public/images/landfill');
+        Storage::deleteDirectory('public/images/meeting');
+        Storage::deleteDirectory('public/images/page');
+        Storage::deleteDirectory('public/images/question');
         $this->call('migrate:fresh',[
             '--seed' => true
         ]);

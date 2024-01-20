@@ -1,9 +1,7 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar__wrap">
-            <a class="logo" href="/" rel="home">
-                <img src="{{ asset('template/images/logo.svg' ) }}">
-            </a>
+            <x-logo />
             <div class="hamb">
                 <div class="hamb__field" id="hamb">
                     <span class="bar"></span>

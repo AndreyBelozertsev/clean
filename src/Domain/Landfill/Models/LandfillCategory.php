@@ -15,7 +15,7 @@ use Domain\Landfill\QueryBuilders\LandfillCategoryQueryBuilder;
 
 class LandfillCategory extends Model
 {
-    use HasFactory, ScopeActive;
+    use HasFactory, ScopeActive, HasSlug;
 
     protected $fillable = [
         'title',

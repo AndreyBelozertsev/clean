@@ -120,7 +120,7 @@ async function initLandfillMapFull() {
     data.landfills.forEach(element => {
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
-        markerElement.src = 'https://ud82.ru/wp-content/themes/uniondelta/assets/images/map-icon.svg';
+        markerElement.src = element.category.thumbnail;
         markerElement.onclick = () => alert(element.address);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),

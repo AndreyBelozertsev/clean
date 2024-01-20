@@ -29,7 +29,8 @@ class CityResource extends ModelResource
     {
         return [
             Block::make([
-                Text::make('Заголовок','title'),
+                Text::make('Заголовок','title')
+                    ->required(),
 
                 Number::make('Порядок сортировки','sort')
                     ->default(500),
@@ -41,6 +42,10 @@ class CityResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'title' => ['required', 'max:200'],
+            'sort' => ['required','integer'],
+            'status' => ['required','boolean']
+        ];
     }
 }

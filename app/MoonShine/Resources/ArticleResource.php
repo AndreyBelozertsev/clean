@@ -28,7 +28,7 @@ class ArticleResource extends ModelResource
         return [
             Block::make([
                 Text::make('Заголовок', 'title')
-                ->required(),
+                    ->required(),
 
                 Textarea::make('Краткое описание','description')
                     ->hideOnIndex(),
@@ -37,9 +37,12 @@ class ArticleResource extends ModelResource
                     ->hideOnIndex(),
 
                 Image::make('Обложка','thumbnail') 
-                    ->hideOnIndex(),
+                    ->hideOnIndex()
+                    ->dir( getUploadPath('article') )
+                    ->allowedExtensions(['jpeg','png','jpg','gif','svg']) ,
                     
                 Switcher::make('Активный', 'status')
+                    ->required()
                     ->default(true)
             ]),
         ];
@@ -47,6 +50,21 @@ class ArticleResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'title' => ['required', 'max:200'],
+            'thumbnail' => ['sometimes','image','mimes:jpeg,png,jpg,gif,svg','max:4096','nullable'],
+            'description' => [],
+            'content' => [],
+            'status' => ['required','boolean']
+        ];
     }
 }
+
+
+// $table->string('title');
+// $table->string('slug')->unique();
+// $table->string('thumbnail')->nullable();
+// $table->text('description')->nullable();
+// $table->text('content')->nullable();
+// $table->boolean('status')->default(true);
+// $table->timestamps();

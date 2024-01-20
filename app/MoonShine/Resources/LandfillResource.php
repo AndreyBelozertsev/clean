@@ -62,6 +62,7 @@ class LandfillResource extends ModelResource
                     ->hideOnIndex()
                     ->multiple()
                     ->readonly()
+                    ->dir( getUploadPath('landfill') )
                     ->disabled(),
 
                 BelongsTo::make(
