@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->string('coordinates')->nullable();
+            $table->integer('scores')->default(0)->nullable();
             $table->foreignIdFor(City::class)
                 ->nullable()
                 ->constrained()

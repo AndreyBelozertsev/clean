@@ -20,7 +20,7 @@ class QuestionResource extends ModelResource
 {
     protected string $model = Question::class;
 
-    protected string $title = 'Мусорный ликбез';
+    protected string $title = 'Полезные статьи';
 
     public function fields(): array
     {

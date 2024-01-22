@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             QuestionSeeder::class,
             CitySeeder::class,
-            HeroSeeder::class,
+            VolunteerSeeder::class,
             MeetingSeeder::class,
             LandfillCategorySeeder::class,
             LandfillSeeder::class,

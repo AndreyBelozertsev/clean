@@ -1,10 +1,10 @@
 <?php
 
-namespace Domain\Hero\Providers;
+namespace Domain\Volunteer\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class HeroServiceProvider extends ServiceProvider
+class VolunteerServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {

@@ -2,16 +2,16 @@
 
 namespace Database\Factories;
 
-use Domain\Hero\Models\Hero;
+use Domain\Volunteer\Models\Volunteer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Hero>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Volunteer>
  */
-class HeroFactory extends Factory
+class VolunteerFactory extends Factory
 {
 
-    protected $model = Hero::class;
+    protected $model = Volunteer::class;
     /**
      * Define the model's default state.
      *
@@ -21,6 +21,7 @@ class HeroFactory extends Factory
     {
         return [
             'name' => fake()->firstName() . ' ' .  fake()->lastName(),
+            'phone' => fake()->e164PhoneNumber(),
             'content' => fake()->paragraph(),
         ];
     }

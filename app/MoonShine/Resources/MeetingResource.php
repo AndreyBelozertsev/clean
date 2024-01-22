@@ -10,8 +10,11 @@ use MoonShine\Fields\ID;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Text;
 use MoonShine\Fields\Image;
+use MoonShine\Fields\Number;
+use MoonShine\Decorations\Tab;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Textarea;
+use MoonShine\Decorations\Tabs;
 use MoonShine\Decorations\Block;
 use App\MoonShine\Fields\MapField;
 use Domain\Meeting\Models\Meeting;
@@ -19,6 +22,7 @@ use MoonShine\Resources\ModelResource;
 use Illuminate\Database\Eloquent\Model;
 use App\MoonShine\Resources\CityResource;
 use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Relationships\BelongsToMany;
 
 class MeetingResource extends ModelResource
 {
@@ -30,45 +34,55 @@ class MeetingResource extends ModelResource
     {
         return [
             Block::make([
-                Text::make('Заголовок', 'title')
-                    ->required(),
+                Tabs::make([
+                    Tab::make('Общая информация', [
+                        Text::make('Заголовок', 'title')
+                            ->required(),
 
-                Textarea::make('Содержание','content')
-                    ->hideOnIndex(),
+                        Textarea::make('Содержание','content')
+                            ->hideOnIndex(),
 
-                Text::make('Адрес','address')
-                    ->required(),
+                        Text::make('Адрес','address')
+                            ->required(),
 
-                Image::make('Обложка','thumbnail') 
-                    ->hideOnIndex()
-                    ->dir( getUploadPath('meeting') )
-                    ->allowedExtensions(['jpeg','png','jpg','gif','svg']) ,
+                        Number::make('Баллы','scores'),
 
-                Text::make('Имя контактного лица','name'),
+                        Image::make('Обложка','thumbnail') 
+                            ->hideOnIndex()
+                            ->dir( getUploadPath('meeting') )
+                            ->allowedExtensions(['jpeg','png','jpg','gif','svg']),
 
-                Text::make('Номер контактного лица','phone'),
+                        Text::make('Имя контактного лица','name'),
 
-                MapField::make('Координаты', 'coordinates')
-                    ->hideOnIndex(),
+                        Text::make('Номер контактного лица','phone'),
 
-                BelongsTo::make(
-                        'МО',
-                        'city',
-                        fn($item) => "$item->title" ,
-                        resource: new CityResource()
-                )
-                    ->searchable()
-                    ->badge('purple'),
+                        MapField::make('Координаты', 'coordinates')
+                            ->hideOnIndex(),
 
-                Date::make('Дата и время начала', 'start_at')
-                    ->withTime()
-                    ->format("d.m.Y h:i")
-                    ->required()
-                    ->sortable()
-                    ->showOnExport(),
-                    
-                Switcher::make('Активный', 'status')
-                    ->default(true)
+                        BelongsTo::make(
+                                'МО',
+                                'city',
+                                fn($item) => "$item->title" ,
+                                resource: new CityResource()
+                        )
+                            ->searchable()
+                            ->badge('purple'),
+
+                        Date::make('Дата и время начала', 'start_at')
+                            ->withTime()
+                            ->format("d.m.Y h:i")
+                            ->required()
+                            ->sortable()
+                            ->showOnExport(),
+                            
+                        Switcher::make('Активный', 'status')
+                            ->default(true)
+                    ]),
+                    Tab::make('Волонтеры', [
+                        BelongsToMany::make('Волонтеры', 'volunteers', formatted: 'name',resource: new VolunteerResource())
+                            ->selectMode(),
+                    ])
+                ])
             ]),
         ];
     }

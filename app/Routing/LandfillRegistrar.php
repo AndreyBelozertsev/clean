@@ -24,7 +24,11 @@ final class LandfillRegistrar implements RouteRegistrar
 
             Route::get('/landfill/{slug}', [LandfillController::class, 'show'])->name('landfill.show');
 
-            Route::post('/landfill', [LandfillController::class, 'store'])->name('landfill.store');
+            Route::post('/landfill/store/stage1', [LandfillController::class, 'stage1'])->name('landfill.store.stage1');
+
+            Route::post('/landfill/store/stage2', [LandfillController::class, 'stage2'])->name('landfill.store.stage2');
+
+            Route::post('/landfill/store/stage3', [LandfillController::class, 'stage3'])->name('landfill.store.stage3');
 
             Route::post('/get-landfills', [LandfillController::class, 'getLandfills']);
 

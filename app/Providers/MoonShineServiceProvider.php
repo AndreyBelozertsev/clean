@@ -16,6 +16,7 @@ use App\MoonShine\Resources\ArticleResource;
 use App\MoonShine\Resources\MeetingResource;
 use App\MoonShine\Resources\LandfillResource;
 use App\MoonShine\Resources\QuestionResource;
+use App\MoonShine\Resources\VolunteerResource;
 use App\MoonShine\Resources\NavigationResource;
 use App\MoonShine\Resources\MoonShineUserResource;
 use App\MoonShine\Resources\LandfillCategoryResource;
@@ -94,13 +95,13 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ->icon('heroicons.outline.user-group'),
 
             MenuItem::make(
-                static fn() => 'Наши герои',
-                new HeroResource()
+                static fn() => 'Добровольцы',
+                new VolunteerResource()
             )
             ->icon('heroicons.outline.user-group'),
 
             MenuItem::make(
-                static fn() => 'Мусорный ликбез',
+                static fn() => 'Полезные статьи',
                 new QuestionResource()
             )
             ->icon('heroicons.outline.user-group'),

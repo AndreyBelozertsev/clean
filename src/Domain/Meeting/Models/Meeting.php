@@ -8,11 +8,13 @@ use Support\Traits\HasSlug;
 use Domain\City\Models\City;
 use Support\Traits\CreateSeo;
 use Support\Traits\ScopeActive;
+use Domain\Volunteer\Models\Volunteer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Domain\Meeting\QueryBuilders\MeetingQueryBuilder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Meeting extends Model
 {
@@ -21,6 +23,7 @@ class Meeting extends Model
     protected $fillable = [
         'title',
         'slug',
+        'scores',
         'content',
         'address',
         'thumbnail',
@@ -35,7 +38,7 @@ class Meeting extends Model
     protected $routeName = 'meeting.show';
 
     /**
-     * Получить полное имя пользователя.
+     * Получить время до начала.
      *
      * @return string
      */
@@ -90,5 +93,11 @@ class Meeting extends Model
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+
+    public function volunteers(): BelongsToMany
+    {
+        return $this->belongsToMany(Volunteer::class);
     }
 }

@@ -16,6 +16,7 @@ use App\Routing\SettingRegistrar;
 use App\Routing\LandfillRegistrar;
 use App\Routing\QuestionRegistrar;
 use App\Routing\MoonshineRegistrar;
+use App\Routing\VolunteerRegistrar;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Routing\Registrar;
@@ -37,7 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         AppRegistrar::class,
         AuthRegistrar::class,
         ArticleRegistrar::class,
-        HeroRegistrar::class,
+        VolunteerRegistrar::class,
         LandfillRegistrar::class,
         MeetingRegistrar::class,
         MoonshineRegistrar::class,

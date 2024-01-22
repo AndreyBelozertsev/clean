@@ -4,12 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\Str;
 use Domain\Auth\Models\User;
-use Domain\Hero\Models\Hero;
 use Domain\Article\Models\Article;
 use Domain\Meeting\Models\Meeting;
 use MoonShine\Models\MoonshineUser;
 use Domain\Landfill\Models\Landfill;
 use Domain\Question\Models\Question;
+use Domain\Volunteer\Models\Volunteer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'article' => Article::class, 
-            'hero' => Hero::class,
+            'volunteer' => Volunteer::class,
             'landfill' => Landfill::class,
             'meeting' => Meeting::class, 
             'user' => MoonshineUser::class,

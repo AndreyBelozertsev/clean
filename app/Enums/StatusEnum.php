@@ -1,5 +1,6 @@
 <?php 
-namespace Domain\Landfill\Enums;
+
+namespace App\Enums;
  
 enum StatusEnum: string
 {

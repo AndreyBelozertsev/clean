@@ -19,9 +19,12 @@ class LandfillCategoryQueryBuilder extends Builder
             ->select(['title','slug','thumbnail']);
     }
 
-    public function landfillsCountGroupByCategory(): LandfillCategoryQueryBuilder
+    public function landfillsCountGroupByCategory($slug = null): LandfillCategoryQueryBuilder
     {
         return $this->active()
+            ->when($slug, function ($q) use($slug) {
+                $q->where('slug', $slug);
+            })
             ->withCount(['landfills' => function (LandfillQueryBuilder $query) {
                 $query->public();
             }]);

@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Domain\Seo\Providers\SeoServiceProvider;
 use Domain\Auth\Providers\AuthServiceProvider;
-use Domain\Hero\Providers\HeroServiceProvider;
+use Domain\Volunteer\Providers\VolunteerServiceProvider;
 use Domain\Page\Providers\PageServiceProvider;
 use Domain\Article\Providers\ArticleServiceProvider;
 use Domain\Meeting\Providers\MeetingServiceProvider;
@@ -32,7 +32,7 @@ class DomainServiceProvider extends ServiceProvider
         );
 
         $this->app->register(
-            HeroServiceProvider::class
+            VolunteerServiceProvider::class
         );
 
         $this->app->register(

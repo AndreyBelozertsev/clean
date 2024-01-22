@@ -32,9 +32,4 @@ class LandfillQueryBuilder extends Builder
             ->orderBy('created_at', 'asc')
             ->select(['address','slug','images','created_at','landfill_category_id','city_id','coordinates']);
     }
-
-    public function public(): LandfillQueryBuilder
-    {
-        return $this->where('status', 'public');
-    }
 }

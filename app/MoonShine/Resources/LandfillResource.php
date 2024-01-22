@@ -7,16 +7,20 @@ namespace App\MoonShine\Resources;
 use MoonShine\Fields\ID;
 
 
+use App\Enums\StatusEnum;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Enum;
 use MoonShine\Fields\Text;
+use Illuminate\Support\Str;
+use MoonShine\Fields\Field;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\TinyMce;
 use MoonShine\Fields\Textarea;
+
 use MoonShine\Decorations\Block;
+use Illuminate\Http\UploadedFile;
 use App\MoonShine\Fields\MapField;
 use Domain\Landfill\Models\Landfill;
-use Domain\Landfill\Enums\StatusEnum;
 use MoonShine\Resources\ModelResource;
 use Illuminate\Database\Eloquent\Model;
 use App\MoonShine\Resources\CityResource;
@@ -62,7 +66,9 @@ class LandfillResource extends ModelResource
                     ->hideOnIndex()
                     ->multiple()
                     ->readonly()
-                    ->dir( getUploadPath('landfill') )
+                    ->customName(function (UploadedFile $file, Field $field){
+                         return getUploadPath('landfill') . '/' . Str::random(10) . '.' . $file->extension();
+                    })
                     ->disabled(),
 
                 BelongsTo::make(
@@ -88,6 +94,8 @@ class LandfillResource extends ModelResource
                             return 'green';
                         }else if($status->slug == 'appealed'){
                             return 'red';
+                        }else{
+                            return 'blue';
                         }
                     }),
                     

@@ -1,25 +1,24 @@
 <?php
-
-namespace App\View\Components\Hero;
+namespace App\View\Components\Volunteer;
 
 use Closure;
-use Domain\Hero\Models\Hero;
 use Illuminate\View\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Domain\Volunteer\Models\Volunteer;
 
-class HeroesList extends Component
+class VolunteersList extends Component
 {
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.hero.heroes-list',['heroes' => $this->getData()]);
+        return view('components.volunteer.volunteers-list',['volunteers' => $this->getData()]);
     }
 
     protected function getData(): Collection
     {
-        return Hero::activeItems()->limit(4)->get();
+        return Volunteer::activeItems()->limit(4)->get();
     }
 }

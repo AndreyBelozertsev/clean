@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Domain\City\Models\City;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -11,14 +12,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('heroes', function (Blueprint $table) {
+        Schema::create('volunteers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
             $table->text('content')->nullable();
-            $table->integer('scores')->default(0)->nullable();
-            $table->boolean('status')->default(true);
+            $table->string('phone');
+            $table->foreignIdFor(City::class)
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->nullOnDelete('cascade');
+            $table->string('status')->default('moderation');  
             $table->timestamps();
         });
     }
@@ -28,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('heroes');
+        Schema::dropIfExists('volunteers');
     }
 };

@@ -32,7 +32,7 @@ export default () => ({
                 showConfirmButton: true,
                 confirmButtonText: 'Хорошо'
             }).then((result) => {
-                window.location.href = '/';
+                //window.location.href = '/';
             });
         }
     }

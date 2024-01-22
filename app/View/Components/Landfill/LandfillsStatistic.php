@@ -29,6 +29,6 @@ class LandfillsStatistic extends Component
 
     protected function getData()
     {
-        return LandfillCategory::landfillsCountGroupByCategory()->get();
+        return LandfillCategory::landfillsCountGroupByCategory('likvidirovana')->get();
     }
 }

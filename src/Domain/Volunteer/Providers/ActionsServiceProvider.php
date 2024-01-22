@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Hero\Providers;
+namespace Domain\Volunteer\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

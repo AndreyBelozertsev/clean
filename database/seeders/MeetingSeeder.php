@@ -17,6 +17,7 @@ class MeetingSeeder extends Seeder
         MeetingFactory::new()
         ->count(20)
         ->create([
+            'scores' => 2,
             'city_id'=>City::inRandomOrder()->first()
         ]);
     }

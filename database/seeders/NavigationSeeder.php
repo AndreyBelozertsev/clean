@@ -34,13 +34,6 @@ class NavigationSeeder extends Seeder
                 
             ],
             [
-                'title' => 'Карта свалок',
-                'url' => 'landfill-map',
-                'status' => 1,
-                'sort' => 500,
-                
-            ],
-            [
                 'title' => 'О проекте',
                 'url' => 'about',
                 'status' => 1,
@@ -61,13 +54,13 @@ class NavigationSeeder extends Seeder
                 'sort' => 500,
             ],
             [
-                'title' => 'Герои',
-                'url' => 'hero',
+                'title' => 'Добровольцы',
+                'url' => 'volunteer',
                 'status' => 1,
                 'sort' => 500,
             ],
             [
-                'title' => 'Ликбез',
+                'title' => 'Полезные статьи',
                 'url' => 'question',
                 'status' => 1,
                 'sort' => 500,
