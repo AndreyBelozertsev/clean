@@ -19,6 +19,7 @@ class Article extends Model
         'title',
         'slug',
         'content',
+        'status',
         'description',
         'thumbnail',
     ];

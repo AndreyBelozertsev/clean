@@ -8,10 +8,12 @@ use MoonShine\Fields\ID;
 
 
 use MoonShine\Fields\Text;
+use Illuminate\Support\Str;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Switcher;
 use MoonShine\Decorations\Block;
+use Illuminate\Http\UploadedFile;
 use MoonShine\Resources\ModelResource;
 use Illuminate\Database\Eloquent\Model;
 use Domain\Landfill\Models\LandfillCategory;
@@ -30,7 +32,9 @@ class LandfillCategoryResource extends ModelResource
 
                 Image::make('Иконка карты','thumbnail') 
                     ->hideOnIndex()
-                    ->dir( getUploadPath('landfill-category') )
+                    ->customName(function (UploadedFile $file, Image $field){
+                        return getUploadPath('landfill-category') . '/' . Str::random(10) . '.' . $file->extension();
+                   })
                     ->allowedExtensions(['jpeg','png','jpg','gif','svg']) ,
 
                 Number::make('Порядок сортировки','sort')

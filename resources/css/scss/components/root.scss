@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Inter-Light';
+    font-weight: 300;
+    font-style: normal;
+    src: local('Inter-Light'),
+        url('../fonts/Inter-Light.woff2') format('woff2'),
+        url('../fonts/Inter-Light.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('Inter-Regular'),
+        url('../fonts/Inter-Regular.woff2') format('woff2'),
+        url('../fonts/Inter-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Medium';
+    font-weight: 500;
+    font-style: normal;
+    src: local('Inter-Medium'),
+        url('../fonts/Inter-Medium.woff2') format('woff2'),
+        url('../fonts/Inter-Medium.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    font-weight: 600;
+    font-style: normal;
+    src: local('Inter-SemiBold'),
+        url('../fonts/Inter-SemiBold.woff2') format('woff2'),
+        url('../fonts/Inter-SemiBold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: local('Inter-Bold'),
+        url('../fonts/Inter-Bold.woff2') format('woff2'),
+        url('../fonts/Inter-Bold.woff') format('woff');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter-ExtraBold';
+    font-weight: 800;
+    font-style: normal;
+    src: local('Inter-ExtraBold'),
+        url('../fonts/Inter-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Inter-ExtraBold.woff') format('woff');
+    font-display: swap;
+}
+
+:root {
+    --accent-red: #D64751;
+    --accent-blue: #002283;
+    --accent-green: #02880B;
+    --premium: #D6DBFF;
+    --default: #343330;
+    --other-blue: #21359E;
+    --other-green: #D3D0D0;
+    --gray: #F1F1F2;
+    --gray-text: #78828E;
+}
+
+body {
+    font-family: 'Inter-Regular';
+    font-size: 16px;
+    color: var(--default);
+    background-color: var(--gray);
+    overflow-x: hidden;
+}
+  

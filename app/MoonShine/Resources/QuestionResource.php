@@ -7,11 +7,13 @@ namespace App\MoonShine\Resources;
 use MoonShine\Fields\ID;
 
 use MoonShine\Fields\Text;
+use Illuminate\Support\Str;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\TinyMce;
 use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Textarea;
 use MoonShine\Decorations\Block;
+use Illuminate\Http\UploadedFile;
 use Domain\Question\Models\Question;
 use MoonShine\Resources\ModelResource;
 use Illuminate\Database\Eloquent\Model;
@@ -37,7 +39,9 @@ class QuestionResource extends ModelResource
 
                 Image::make('Обложка','thumbnail') 
                     ->hideOnIndex()
-                    ->dir( getUploadPath('question') )
+                    ->customName(function (UploadedFile $file, Image $field){
+                        return getUploadPath('article') . '/' . Str::random(10) . '.' . $file->extension();
+                    })
                     ->allowedExtensions(['jpeg','png','jpg','gif','svg']),
                     
                 Switcher::make('Активный', 'status')

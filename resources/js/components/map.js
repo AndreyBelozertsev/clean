@@ -120,7 +120,7 @@ async function initLandfillMapFull() {
     data.landfills.forEach(element => {
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
-        markerElement.src = element.category.thumbnail;
+        markerElement.src = `storage/${element.category.thumbnail}`;
         markerElement.onclick = () => alert(element.address);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),

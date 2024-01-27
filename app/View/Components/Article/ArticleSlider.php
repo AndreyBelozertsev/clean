@@ -4,21 +4,22 @@ namespace App\View\Components\Article;
 
 use Closure;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 use Domain\Article\Models\Article;
 use Illuminate\Contracts\View\View;
 
-class FirstArticle extends Component
+class ArticleSlider extends Component
 {
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.article.first-article',['article' => $this->getData()]);
+        return view('components.article.article-slider',['articles' => $this->getData()]);
     }
 
-    protected function getData(): Article | null
+    protected function getData(): Collection
     {
-        return Article::activeItems()->first();
+        return Article::activeItems()->limit(4)->oldest()->get();
     }
 }

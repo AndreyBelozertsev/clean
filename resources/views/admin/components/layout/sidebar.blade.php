@@ -17,12 +17,6 @@
         </div>
 
         <div class="menu-heading-actions">
-            @if(config('moonshine.use_theme_switcher', true))
-                <div class="menu-heading-mode">
-                    <x-moonshine::layout.theme-switcher :top="false" />
-                </div>
-            @endif
-
             <div class="menu-heading-burger">
                 @include('moonshine::layouts.shared.burger')
             </div>

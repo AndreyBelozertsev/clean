@@ -14,5 +14,5 @@ use MoonShine\Components\MoonShineComponent;
  */
 final class Sidebar extends SidebarParent
 {
-    protected string $view = 'admin.components.sidebar';
+    //protected string $view = 'admin.components.layout.sidebar';
 }

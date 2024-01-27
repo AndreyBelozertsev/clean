@@ -9,6 +9,7 @@ use MoonShine\Fields\ID;
 
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Text;
+use Illuminate\Support\Str;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Number;
 use MoonShine\Decorations\Tab;
@@ -16,6 +17,7 @@ use MoonShine\Fields\Switcher;
 use MoonShine\Fields\Textarea;
 use MoonShine\Decorations\Tabs;
 use MoonShine\Decorations\Block;
+use Illuminate\Http\UploadedFile;
 use App\MoonShine\Fields\MapField;
 use Domain\Meeting\Models\Meeting;
 use MoonShine\Resources\ModelResource;
@@ -49,7 +51,9 @@ class MeetingResource extends ModelResource
 
                         Image::make('Обложка','thumbnail') 
                             ->hideOnIndex()
-                            ->dir( getUploadPath('meeting') )
+                            ->customName(function (UploadedFile $file, Image $field){
+                                return getUploadPath('meeting') . '/' . Str::random(10) . '.' . $file->extension();
+                            })
                             ->allowedExtensions(['jpeg','png','jpg','gif','svg']),
 
                         Text::make('Имя контактного лица','name'),

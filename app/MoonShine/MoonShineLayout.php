@@ -13,10 +13,10 @@ use MoonShine\Components\Layout\{Content,
     Menu,
     Profile,
     Search,
+    Sidebar,
     TopBar};
 
 use MoonShine\Components\When;
-use App\Moonshine\Components\Sidebar;
 use MoonShine\ActionButtons\ActionButton;
 use MoonShine\Contracts\MoonShineLayoutContract;
 
@@ -25,22 +25,25 @@ final class MoonShineLayout implements MoonShineLayoutContract
     public static function build(): LayoutBuilder
     {
         return LayoutBuilder::make([
-            TopBar::make([
+            Sidebar::make([
                 ActionButton::make(
                     label: 'На сайт',
                     url: '/',
                 ),
-            ]),
-            Sidebar::make([
                 Menu::make()->customAttributes(['class' => 'mt-2']),
+                When::make(
+                    static fn () => config('moonshine.auth.enable', true),
+                    static fn (): array => [Profile::make(withBorder: true)]
+                ),
             ]),
             LayoutBlock::make([
-
                 Flash::make(),
-                Header::make(),
+                Header::make([
+                    Search::make(),
+                ]),
                 Content::make(),
-                Footer::make(),
+                Footer::make()->menu([]),
             ])->customAttributes(['class' => 'layout-page']),
-        ])->customAttributes(['style' => 'padding-left: 18rem;']);
+        ]);
     }
 }
