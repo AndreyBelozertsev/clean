@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class RefreshCommand extends Command
 {
@@ -37,10 +38,12 @@ class RefreshCommand extends Command
         Storage::deleteDirectory('public/images/hero');
         Storage::deleteDirectory('public/images/article');
         Storage::deleteDirectory('public/images/hero');
-        Storage::deleteDirectory('public/images/landfill');
+        Storage::deleteDirectory('public/images/landfill-category');
         Storage::deleteDirectory('public/images/meeting');
         Storage::deleteDirectory('public/images/page');
         Storage::deleteDirectory('public/images/question');
+
+        File::copyDirectory( storage_path('fixtures'), storage_path('app/public'));
         $this->call('migrate:fresh',[
             '--seed' => true
         ]);

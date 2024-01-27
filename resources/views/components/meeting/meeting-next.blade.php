@@ -1,15 +1,16 @@
-<br>components.meeting.meeting-next<br>
-
 @if($meeting)
-    
-    Сейчас - {{ date("Y-m-d H:i:s") }}<br>
-    Субботник - {{ $meeting->start_at }}<br>
-
-    До ближайшего субботника осталось:</br>
-    Месяцев - {{ $meeting->remains_until['months'] }}<br>
-    Дней - {{ $meeting->remains_until['days'] }}<br>
-    Часов - {{ $meeting->remains_until['hours'] }}<br>
-    Минут - {{ $meeting->remains_until['minuts'] }}<br>
-    Секунд - {{ $meeting->remains_until['seconds'] }}<br>
+<div class="mb-6 md:mb-10">
+    <div class="flex items-center">
+        <p class="text-xl font-inter-800 mb-2">
+            Следующий субботник: 
+            <span class="font-inter-500">
+                {{ getHumanDate($meeting->start_at, true) }}
+            </span>
+        </p>
+    </div>
+    <div class="flex gap-[6px] py-[6px] ml-1">
+        <img data-src="img/icons/map-pin.svg" src="img/1x1.png" alt="map pin">
+        <p><a href="{{ route('meeting.show',[ 'slug' => $meeting->slug ]) }}">{{ $meeting->city->title . ", " . $meeting->address}}</a></p>
+    </div>
+</div>
 @endif
-<br>endcomponents.meeting.meeting-next<br>

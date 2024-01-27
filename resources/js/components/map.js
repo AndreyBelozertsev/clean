@@ -198,7 +198,7 @@ async function initMeetingMapFull() {
     data.meetings.forEach(element => {
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
-        markerElement.src = 'https://ud82.ru/wp-content/themes/uniondelta/assets/images/map-icon.svg';
+        markerElement.src = '/img/icons/map-pin.svg';
         markerElement.onclick = () => alert(element.title);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),

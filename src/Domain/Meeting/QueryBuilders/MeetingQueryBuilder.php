@@ -24,6 +24,10 @@ class MeetingQueryBuilder extends Builder
     {
         return $this->active()
             ->where('start_at', '>', now())->orderBy('start_at','asc')
-            ->select(['slug','start_at']);
+            ->with([
+                'city' => fn ($query) => $query
+                    ->select(['id','title'])
+            ])
+            ->select(['id','slug','start_at','address','city_id']);
     }
 }

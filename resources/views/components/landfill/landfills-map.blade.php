@@ -2,6 +2,10 @@
 <div class="bg-white px-6 py-8 rounded-standart">
     <div class="flex justify-between items-center flex-wrap py-[5px] mb-6 md:mb-10">
         <h2 class="font-inter-800 text-2xl sm:text-3xl lg:text-4xl">Карта свалок</h2>
+        <a class="text-other-blue font-inter-500 py-[14px] pr-3 pl-0 lg:pr-6 lg:pl-8" href="{{ route('landfill.index') }}">
+            Показать списком
+            <img class="inline-block ml-1" src="img/icons/vuesax.svg" alt="vuesax">
+        </a>
     </div>
     <div>
         <div class="filter-block flex gap-5 mb-5 text-white flex-wrap">

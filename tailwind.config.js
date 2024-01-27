@@ -33,10 +33,6 @@ module.exports = {
       "inter-400": "Inter-Regular",
       "inter-300": "Inter-Light",
     },
-    borderRadius: {
-      huge: "52px",
-      standart: "30px",
-    },
     extend: {
       colors: {
         "accent-red": "#D64751",
@@ -48,6 +44,10 @@ module.exports = {
         default: "#343330",
         gray: "#F1F1F2",
         "gray-text": "#78828E",
+      },
+      borderRadius: {
+        huge: "52px",
+        standart: "30px",
       },
       backgroundImage: {
         subtract: "url('../img/icons/subtract.svg')",

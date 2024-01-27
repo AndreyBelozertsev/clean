@@ -1,8 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
-    page.landfill-map.index
-        Свалки - карт
-        <x-landfill.landfills-map />
-    endpage.landfill-map.index
+<main class="mt-10 mb-20">
+    <section>
+        <div class="container">
+            <div class="bg-white px-6 py-8 rounded-standart">
+                <x-landfill.landfills-map />
+            </div>
+        </div>
+    </section>
+</main>
 @endsection

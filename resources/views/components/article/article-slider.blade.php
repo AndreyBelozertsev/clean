@@ -12,7 +12,7 @@
                             style="background-image: url('/img/news-bg.jpg')"
                         >
                             <h5 class="text-xl lg:text-2xl text-white font-inter-800">
-                                Первый летний субботник
+                                <a href="{{ route('article.show', ['slug' => $article->slug]) }}">Первый летний субботник</a>
                             </h5>
                         </div>
                     </div>

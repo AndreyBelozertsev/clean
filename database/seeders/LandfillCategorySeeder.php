@@ -16,19 +16,19 @@ class LandfillCategorySeeder extends Seeder
         $items = [
             [
                 'title' => 'Новая',
-                'thumbnail' => 'map-icon.svg',
+                'thumbnail' => 'images/landfill-category/2024/01/19/60hEVbXLL8.svg',
                 'slug' => 'new',
                 'sort' => 100,
             ],
             [
                 'title' => 'Обжалована',
-                'thumbnail' => 'map-icon.svg',
+                'thumbnail' => 'images/landfill-category/2024/01/19/djaWPa5cs3.svg',
                 'slug' => 'appealed',
                 'sort' => 200,
             ],
             [
                 'title' => 'Ликвидирована',
-                'thumbnail' => 'map-icon.svg',
+                'thumbnail' => 'images/landfill-category/2024/01/19/XIITMi8KPb.svg',
                 'slug' => 'liquidated',
                 'sort' => 300,
             ]

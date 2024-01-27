@@ -8,6 +8,7 @@ use App\Events\LandfillCreated;
 use Domain\Landfill\Models\Landfill;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
+use Domain\Landfill\Models\LandfillCategory;
 use App\Http\Requests\LandfillStage1CreateRequest;
 use App\Http\Requests\LandfillStage2CreateRequest;
 use App\Http\Requests\LandfillStage3CreateRequest;
@@ -22,8 +23,12 @@ class LandfillController extends Controller
 
     public function index()
     {
-        $landfills = Landfill::activeItems()->paginate(10);
-        return view('page.landfill.index',['landfills' => $landfills]);
+        $landfills = Landfill::activeItems()->paginate(10)->withQueryString();
+        $categories = LandfillCategory::activeNoEmptyItems()->get();
+        return view('page.landfill.index',[
+            'landfills' => $landfills,
+            'categories' => $categories
+        ]);
     }
 
     public function indexMap()

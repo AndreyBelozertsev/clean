@@ -19,6 +19,10 @@ class VolunteersList extends Component
 
     protected function getData(): Collection
     {
-        return Volunteer::activeItems()->limit(4)->get();
+        return Volunteer::activeItems()
+            ->limit(3)
+            ->withSum('meetings','scores')
+            ->orderBy('meetings_sum_scores', 'desc')
+            ->get();
     }
 }

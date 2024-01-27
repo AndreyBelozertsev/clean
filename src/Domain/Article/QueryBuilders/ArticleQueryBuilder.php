@@ -17,7 +17,7 @@ class ArticleQueryBuilder extends Builder
     public function activeItems(): ArticleQueryBuilder
     {
         return $this->active()
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->select(['title','slug','thumbnail','description','created_at']);
     }
 
