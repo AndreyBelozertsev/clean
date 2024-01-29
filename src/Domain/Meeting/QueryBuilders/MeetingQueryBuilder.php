@@ -10,6 +10,7 @@ class MeetingQueryBuilder extends Builder
     public function activeItems(): MeetingQueryBuilder
     {
         return $this->active()
+            ->orderBy('start_at', 'desc')
             ->select(['title','slug','content','coordinates', 'start_at' ]);
     }
 

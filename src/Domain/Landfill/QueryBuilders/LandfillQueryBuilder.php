@@ -32,7 +32,7 @@ class LandfillQueryBuilder extends Builder
             ->when(request()->has('category'), function($query){
                 $query->whereRelation('category','slug','=',request()->get('category'));
             })
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->select(['address','slug','images','created_at','landfill_category_id','city_id','coordinates']);
     }
 }

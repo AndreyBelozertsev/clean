@@ -27,47 +27,53 @@
 
 <body class="bg-brand">
 	<!-- Site header -->
-	<header>
+	<header x-data="{
+              active: false
+            }" class="pt-6">
 		@include('partials.top-navigation-menu')
-	</header>
-	<div>
-		<x-landfill.landfills-statistic />
-		<x-meeting.meeting-next />
-		<div>
-			<a href="{{ route('landfill.create') }}">Заявить о незаконной свалке</a>
-		</div>
-		<div>
-			<form action="{{ route('search') }}">
-				<input class="border border-red-600" type="text" name="search">
-				<button type="submit">найти</button>
-			</form>
-		</div>
-	</div>	
+	</header>	
 	@yield('content')
 	<!-- Site footer -->
-	<footer class="bg-brand py-8">
+	<footer class="mb-6">
 		<div class="container">
-			<x-logo />
-			<div class="hidden lg:flex gap-24 pb-8">
-				@forelse ($menu->all() as $item)
-                    <li><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif"> {{ $item->label()  }}</a></li>
-                @empty
-				@endforelse
-			
+		<div class="bg-white px-8 pt-8 pb-5 rounded-standart">
+			<div class="flex justify-between gap-5 items-start pb-[50px] border-b border-other-g flex-wrap lg:flex-nowrap">
+				<a class="footer__logo" href="/">
+					<img src="img/logo.png" alt="Чистый Крым">
+				</a>
+				<ul class="pt-2.5 font-inter-500 grid max-w-[1064px] gap-10 gap-y-1 sm:grid-cols-2 sm:order-1 lg:order-none xl:gap-y-3 xl:grid-cols-4 3xl:gap-x-20">
+					@forelse ($menu->all() as $item)
+						<li><a href="{{ $item->link() }}" class="text-base/[1] tracking-[-0.8px]"> {{ $item->label()  }}</a></li>
+					@empty
+					@endforelse
+				</ul>
+				<div class="flex gap-2">
+					@if(isset( $setting['vk']) )
+						<a href="{{ $setting['vk'] }}">
+							<img src="/img/icons/vk.svg" class="rounded-[50%]" alt="Vkontakte">
+						</a>
+					@endif
+					@if(isset( $setting['tg'] ) )
+						<a href="{{ $setting['tg'] }}">
+							<img src="/img/icons/telegram.svg" class="rounded-[50%]" alt="Telegram">
+						</a>
+					@endif
+				</div>
 			</div>
-			<div>
-			@if(isset( $setting['vk']) )
-				<a href="{{ $setting['vk'] }}">VK</a>
-			@endif
-			@if(isset( $setting['tg']) )
-				<a href="{{ $setting['tg'] }}">TG</a>
-			@endif
+			<div class="mt-5 flex justify-between flex-wrap text-xs">
+				@isset( $setting['organization'] )
+					<p class="mb-5 xl:mb-0">
+						©  {{ date('Y') . ', ' . $setting['organization'] }} проект “Чистый Крым”. Все права защищены
+					</p>
+				@endisset
+				<a href="#" class="pr-[18px]">
+					Политика конфиденциальности
+				</a>
 			</div>
-			@if(isset( $setting['organization']) &&  isset($setting['inn']) )
-				<p>©️  {{ $setting['organization'] . " - " . $setting['inn'] . " - " . date('Y') . ' г.' }}</p>
-			@endif
+		</div>
 		</div>
 	</footer>
+	@include('partials.modals')
 	@vite(['resources/js/app.js'])
    
 </body>

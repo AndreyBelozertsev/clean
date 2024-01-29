@@ -12,7 +12,7 @@
             </a>
         @endforeach
     </div>
-    <div class="grid xl:grid-cols-2 gap-x-4 gap-y-5">
+    <div class="grid 2xl:grid-cols-2 gap-x-4 gap-y-5">
         @foreach($landfills as $landfill)
             <x-landfill.landfill-list-item :landfill="$landfill" />
         @endforeach

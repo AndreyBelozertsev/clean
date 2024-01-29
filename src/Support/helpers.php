@@ -34,3 +34,26 @@ if (!function_exists('getHumanDate')) {
     }
 }
 
+if (!function_exists('makeThumbnail')) {
+    function makeThumbnail( string $file, string $size, string $method = 'resize')
+    {
+        
+        if(! file_exists(public_path($file)) ){
+            return;
+        }
+
+        $pathParse = array_reverse(explode('/', $file));
+
+        return route('thumbnail',[
+            'size'=>$size,
+            'dir'=> $pathParse[4],
+            'year'=> $pathParse[3],
+            'month'=> $pathParse[2],
+            'day'=> $pathParse[1],
+            'method'=>$method,
+            'file' =>File::basename($file)
+        ]);
+            
+    }
+}
+

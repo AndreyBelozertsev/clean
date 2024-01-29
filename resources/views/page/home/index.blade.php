@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    Главная страница
 <main class="mt-10 mb-20">
     <section>
         <div class="container">

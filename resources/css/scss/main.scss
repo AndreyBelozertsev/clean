@@ -13,7 +13,11 @@
 
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
+
 @import './components/root.scss';
+@import './components/checkbox.scss';
 @import './components/content.scss';
 @import './components/menu.scss';
+@import './components/popup.scss';
 @import './components/slider.scss';
+@import './components/step.scss';

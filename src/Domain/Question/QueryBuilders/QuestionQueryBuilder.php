@@ -17,7 +17,7 @@ class QuestionQueryBuilder extends Builder
     public function activeItems(): QuestionQueryBuilder
     {
         return $this->active()
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->select(['title','slug','thumbnail','description','created_at']);
     }
 

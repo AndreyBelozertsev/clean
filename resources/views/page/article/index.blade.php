@@ -9,19 +9,19 @@
                 <div class="mb-32 text-center md:text-left grid gap-4">
                     @forelse($articles as $article)
                         @php
-                            $img = asset('images/no-img.jpg');
+                            $img = asset('/images/no-img.jpg');
                             if($article->thumbnail){
-                                $img = Storage::disk('public')->url($article->thumbnail);
+                                $img = makeThumbnail('storage/' . $article->thumbnail, 'nullx600');
                             }
                         @endphp
-                        <div class="grid md:grid-cols-3 gap-0 bg-gray p-2 rounded-standart">
-                            <a class="block rounded-t-[24px] md:rounded-[24px] w-full bg-cover bg-center min-h-[250px]" 
+                        <div class="grid lg:grid-cols-3 gap-0 bg-gray p-2 rounded-standart">
+                            <a class="block rounded-t-[24px] lg:rounded-[24px] w-full bg-cover bg-center min-h-[250px]" 
                                 style="background-image: linear-gradient(180deg, rgba(221,217,249,.5) 0%, rgba(201,240,204,.5) 100%),
                                 url({{ $img }});" 
                                 href="{{ route('article.show', ['slug' => $article->slug]) }}"
                             >
                             </a>
-                            <div class="p-6 md:col-span-2">
+                            <div class="p-6 lg:col-span-2">
                                 <a href="{{ route('article.show', ['slug' => $article->slug]) }}">
                                     <h2 class="font-inter-600 uppercase tracking-[-0.8px] mb-2.5 leading-none">{{ $article->title }}</h2>
                                 </a>

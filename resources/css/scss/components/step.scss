@@ -1,0 +1,11 @@
+
+.step {
+    width: 28px;
+    height: 4px;
+    border-radius: 16px;
+    background-color: var(--step-color);
+}
+  
+.step.active {
+    background-color: var(--default);
+}

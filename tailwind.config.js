@@ -41,6 +41,9 @@ module.exports = {
         premium: "#D6DBFF",
         "other-blue": "#21359E",
         "other-green": "#D3D0D0",
+        "popup-bor": "rgba(18, 19, 22, 0.15)",
+        "step-color": "#9F9FA0",
+        "step-txt": "#737376",
         default: "#343330",
         gray: "#F1F1F2",
         "gray-text": "#78828E",
@@ -49,13 +52,14 @@ module.exports = {
         huge: "52px",
         standart: "30px",
       },
-      backgroundImage: {
-        subtract: "url('../img/icons/subtract.svg')",
-      },
       boxShadow: {
         popup:
           "0px 8px 12px 0px rgba(18, 19, 22, 0.15), 0px 0px 1px 0px rgba(18, 19, 22, 0.31)",
       },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        'thumb-block': '200px 1fr',
+      }
     },
   },
   plugins: [],

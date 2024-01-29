@@ -2,8 +2,19 @@
     'landfill'
 ])
 
-<div class="grid-cols-1 p-2 bg-gray rounded-standart flex gap-3 flex-wrap md:flex-nowrap justify-center sm:justify-normal">
-    <img class="rounded-[24px]" alt="{{ $landfill->address }}" src="{{ isset($landfill->images[0]) ? Storage::disk('public')->url($landfill->images[0]) : '/img/updates/1.jpg' }}">
+@php
+    $img = asset('/images/no-img.jpg');
+    if(isset($landfill->images[0])){
+        $img = makeThumbnail('storage/' . $landfill->images[0], 'nullx600');
+    }
+@endphp
+
+<div class="grid lg:grid-cols-thumb-block p-2 bg-gray rounded-standart gap-3 flex-wrap lg:flex-nowrap justify-center sm:justify-normal">
+    <div class="rounded-[24px] h-[250px] lg:w-[200px] lg:h-[200px] overflow-hidden">
+        <a href="{{ route('landfill.show',['slug' => $landfill->slug]) }}">
+            <img class="w-full h-full object-cover" alt="{{ $landfill->address }}" src="{{ $img }}">
+        </a>
+    </div>
     <div class="py-2.5 flex flex-col justify-between">
         <h4 class="font-inter-600 uppercase tracking-[-0.8px] mb-2.5 leading-none">
             <a href="{{ route('landfill.show',['slug' => $landfill->slug]) }}">{{ $landfill->address  }}</a>

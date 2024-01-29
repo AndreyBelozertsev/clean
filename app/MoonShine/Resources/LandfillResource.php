@@ -65,11 +65,13 @@ class LandfillResource extends ModelResource
                 Image::make('Фото','images') 
                     ->hideOnIndex()
                     ->multiple()
-                    ->readonly()
+                    //->readonly()
+                    ->removable() 
                     ->customName(function (UploadedFile $file, Field $field){
                          return getUploadPath('landfill') . '/' . Str::random(10) . '.' . $file->extension();
                     })
-                    ->disabled(),
+                    //->disabled()
+                    ,
 
                 BelongsTo::make(
                     'МО',
@@ -79,6 +81,7 @@ class LandfillResource extends ModelResource
                 )
                     ->searchable()
                     ->badge('purple')
+                    ->sortable()
                     ->readonly(),
 
                 BelongsTo::make(
@@ -100,7 +103,8 @@ class LandfillResource extends ModelResource
                     }),
                     
                 Enum::make('Статус публикации','status') 
-                    ->attach(StatusEnum::class),
+                    ->attach(StatusEnum::class)
+                    ->sortable(),
             ]),
         ];
     }
