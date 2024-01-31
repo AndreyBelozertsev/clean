@@ -38,7 +38,8 @@ class LandfillController extends Controller
 
     public function show($slug)
     {
-
+        $landfill = Landfill::activeItem($slug)->firstOrFail();
+        return view('page.landfill.show',['landfill' => $landfill]);
     }
 
     public function getLandfills()

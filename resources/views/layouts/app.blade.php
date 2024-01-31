@@ -39,7 +39,7 @@
 		<div class="bg-white px-8 pt-8 pb-5 rounded-standart">
 			<div class="flex justify-between gap-5 items-start pb-[50px] border-b border-other-g flex-wrap lg:flex-nowrap">
 				<a class="footer__logo" href="/">
-					<img src="img/logo.png" alt="Чистый Крым">
+					<img src="/images/logo.png" alt="Чистый Крым">
 				</a>
 				<ul class="pt-2.5 font-inter-500 grid max-w-[1064px] gap-10 gap-y-1 sm:grid-cols-2 sm:order-1 lg:order-none xl:gap-y-3 xl:grid-cols-4 3xl:gap-x-20">
 					@forelse ($menu->all() as $item)
@@ -50,12 +50,12 @@
 				<div class="flex gap-2">
 					@if(isset( $setting['vk']) )
 						<a href="{{ $setting['vk'] }}">
-							<img src="/img/icons/vk.svg" class="rounded-[50%]" alt="Vkontakte">
+							<img src="/images/icons/vk.svg" class="rounded-[50%]" alt="Vkontakte">
 						</a>
 					@endif
 					@if(isset( $setting['tg'] ) )
 						<a href="{{ $setting['tg'] }}">
-							<img src="/img/icons/telegram.svg" class="rounded-[50%]" alt="Telegram">
+							<img src="/images/icons/telegram.svg" class="rounded-[50%]" alt="Telegram">
 						</a>
 					@endif
 				</div>

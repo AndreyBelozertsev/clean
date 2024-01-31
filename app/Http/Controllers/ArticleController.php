@@ -9,12 +9,13 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::activeItems()->paginate(10);
+        $articles = Article::activeItems()->paginate(5);
         return view('page.article.index',['articles' => $articles]);
     }
 
     public function show($slug)
     {
-
+        $article = Article::activeItem($slug)->firstOrFail();
+        return view('page.article.show',['article' => $article]);
     }
 }

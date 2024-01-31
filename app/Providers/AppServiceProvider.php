@@ -9,6 +9,7 @@ use Domain\Meeting\Models\Meeting;
 use MoonShine\Models\MoonshineUser;
 use Domain\Landfill\Models\Landfill;
 use Domain\Question\Models\Question;
+use Illuminate\Pagination\Paginator;
 use Domain\Volunteer\Models\Volunteer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -28,6 +29,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        Paginator::defaultView('vendor.pagination.tailwind');
+
+        Paginator::defaultSimpleView('vendor.pagination.simple-tailwind');
+
+
         Relation::morphMap([
             'article' => Article::class, 
             'volunteer' => Volunteer::class,

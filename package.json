@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "alpinejs": "^3.13.3",
+        "cropperjs": "^1.6.1",
         "sass": "^1.63.6",
         "sweetalert2": "^11.10.3",
         "swiper": "^11.0.5"

@@ -9,12 +9,12 @@
                 <div class="mb-32 text-center md:text-left grid gap-4">
                     @forelse($articles as $article)
                         @php
-                            $img = asset('/images/no-img.jpg');
+                            $img = asset('/images/no-img.svg');
                             if($article->thumbnail){
                                 $img = makeThumbnail('storage/' . $article->thumbnail, 'nullx600');
                             }
                         @endphp
-                        <div class="grid lg:grid-cols-3 gap-0 bg-gray p-2 rounded-standart">
+                        <div class="grid lg:grid-cols-3 gap-0 bg-custom-gray p-2 rounded-standart">
                             <a class="block rounded-t-[24px] lg:rounded-[24px] w-full bg-cover bg-center min-h-[250px]" 
                                 style="background-image: linear-gradient(180deg, rgba(221,217,249,.5) 0%, rgba(201,240,204,.5) 100%),
                                 url({{ $img }});" 
@@ -37,7 +37,7 @@
                                 <div>
                                     <a class="text-other-blue font-inter-500" href="http://127.0.0.1:8000/landfill">
                                         Подробнее
-                                        <img class="inline-block ml-1" src="/img/icons/vuesax.svg" alt="vuesax">
+                                        <img class="inline-block ml-1" src="/images/icons/vuesax.svg" alt="vuesax">
                                     </a>
                                 </div>
                             </div>

@@ -22,10 +22,10 @@
     <p class=text-lg lg:text-xl font-inter-500">Мы в социальных сетях:</p>
     <div class="flex gap-4 pt-2">
         @if(isset($setting['vk']))
-            <a href="{{ $setting['vk'] }}"><img src="/img/icons/vk.svg" alt="vk"></a>
+            <a href="{{ $setting['vk'] }}"><img src="/images/icons/vk.svg" alt="vk"></a>
         @endif
         @if(isset($setting['tg']))
-            <a href="{{ $setting['tg'] }}"><img src="/img/icons/telegram.svg" alt="telegram"></a>
+            <a href="{{ $setting['tg'] }}"><img src="/images/icons/telegram.svg" alt="telegram"></a>
         @endif
     </div>
 </div>

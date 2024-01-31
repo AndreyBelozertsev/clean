@@ -17,7 +17,7 @@
           После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
         </p>
         <form class="mb-8" action="#">
-          <div class="font-manrope-400 text-sm text-gray mb-8">
+          <div class="font-manrope-400 text-sm text-custom-gray mb-8">
             <label class="mb-4 block">
               <span class="text-step-txt mb-2 inline-block">Муниципальное образование<span
                   class="text-accent-red ml-1">*</span></span>
@@ -138,7 +138,7 @@
           После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
         </p>
         <form class="mb-8" action="#">
-          <div class="font-manrope-400 text-sm text-gray mb-8">
+          <div class="font-manrope-400 text-sm text-custom-gray mb-8">
             <label class="mb-4 block">
               <span class="text-step-txt mb-2 inline-block">Имя<span class="text-accent-red ml-1">*</span></span>
               <input class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="text"

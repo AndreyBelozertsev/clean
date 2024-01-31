@@ -12,13 +12,17 @@ class VolunteerController extends Controller
 {
     public function index()
     {
-        $volunteers = Volunteer::activeItems()->withSum('meetings','scores')->orderBy('meetings_sum_scores', 'desc')->paginate(10);
+        $volunteers = Volunteer::activeItems()
+            ->withSum('meetings','scores')
+            ->orderBy('meetings_sum_scores', 'desc')
+            ->paginate(24);
         return view('page.volunteer.index',['volunteers' => $volunteers]);
     }
 
     public function show($slug)
     {
-
+        $volunteer = Volunteer::activeItem($slug)->withSum('meetings','scores')->firstOrFail();
+        return view('page.volunteer.show',['volunteer' => $volunteer]);
     }
 
     public function create()

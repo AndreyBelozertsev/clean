@@ -157,6 +157,11 @@ if( document.getElementById('meeting-map-full') ){
 
 //Получаем точки и типы отметок  
 async function getMeetingsData() {
+    let block = document.getElementById('meeting-map-full');
+    if( block.getAttribute('data-meetings') ){
+        return JSON.parse(block.getAttribute('data-meetings'))
+    }
+
     const res = await fetch('/get-meetings', {
         method: "POST",
         headers: {
@@ -198,7 +203,7 @@ async function initMeetingMapFull() {
     data.meetings.forEach(element => {
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
-        markerElement.src = '/img/icons/map-pin.svg';
+        markerElement.src = '/images/icons/map-pin.svg';
         markerElement.onclick = () => alert(element.title);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),

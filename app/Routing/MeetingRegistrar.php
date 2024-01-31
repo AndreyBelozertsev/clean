@@ -17,6 +17,8 @@ final class MeetingRegistrar implements RouteRegistrar
 
             Route::get('/meeting', [MeetingController::class, 'index'])->name('meeting.index');
 
+            Route::get('/meeting-map', [MeetingController::class, 'indexMap'])->name('meeting-map.index');
+
             Route::get('/meeting/{slug}', [MeetingController::class, 'show'])->name('meeting.show');
 
             Route::post('/get-meetings', [MeetingController::class, 'getMeetings']);

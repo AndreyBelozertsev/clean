@@ -18,6 +18,14 @@ class VolunteerQueryBuilder extends Builder
     {
         return $this->public()
             ->where('slug', $slug)
-            ->select(['name','slug','thumbnail','content']);
+            ->with([
+                'city' => fn ($query) => $query
+                    ->select(['id','title'])
+            ])
+            ->with([
+                'meetings' => fn ($query) => $query
+                    ->select(['title','slug', 'start_at','coordinates'])
+            ])
+            ->select(['id','name','slug','thumbnail','content', 'city_id']);
     }
 }

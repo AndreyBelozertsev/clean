@@ -15,6 +15,7 @@ class QuestionController extends Controller
 
     public function show($slug)
     {
-
+        $question = Question::activeItem($slug)->firstOrFail();
+        return view('page.question.show',['question' => $question]);
     }
 }

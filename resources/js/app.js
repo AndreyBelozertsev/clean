@@ -9,6 +9,7 @@ import './components/map';
 import './components/menu';
 import './components/popup';
 import './components/slider';
+import './components/image-crop';
 
 
 Alpine.data('useForm', useForm)

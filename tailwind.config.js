@@ -45,8 +45,8 @@ module.exports = {
         "step-color": "#9F9FA0",
         "step-txt": "#737376",
         default: "#343330",
-        gray: "#F1F1F2",
-        "gray-text": "#78828E",
+        "custom-gray ": "#F1F1F2",
+        "custom-gray-text": "#78828E",
       },
       borderRadius: {
         huge: "52px",
@@ -59,6 +59,7 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 16 column grid
         'thumb-block': '200px 1fr',
+        'volunteer-block': '298px 1fr',
       }
     },
   },

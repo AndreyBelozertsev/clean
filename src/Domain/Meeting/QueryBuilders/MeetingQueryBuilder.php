@@ -11,14 +11,18 @@ class MeetingQueryBuilder extends Builder
     {
         return $this->active()
             ->orderBy('start_at', 'desc')
-            ->select(['title','slug','content','coordinates', 'start_at' ]);
+            ->with([
+                'city' => fn ($query) => $query
+                    ->select(['id','title'])
+            ])
+            ->select(['title','address','slug','content','coordinates', 'start_at', 'city_id']);
     }
 
     public function activeItem($slug): MeetingQueryBuilder
     {
         return $this->active()
             ->where('slug', $slug)
-            ->select(['title','slug','content','description', 'template']);
+            ->select(['title','address','slug','content','coordinates', 'start_at', 'city_id', 'name', 'phone']);
     }
 
     public function nearestEvent(): MeetingQueryBuilder

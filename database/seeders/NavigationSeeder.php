@@ -28,46 +28,46 @@ class NavigationSeeder extends Seeder
             ],
             [
                 'title' => 'Свалки',
-                'url' => 'landfill',
+                'url' => '/landfill',
                 'status' => 1,
                 'sort' => 500,
                 
             ],
             [
                 'title' => 'О проекте',
-                'url' => 'about',
+                'url' => '/about',
                 'status' => 1,
                 'sort' => 500,
                 
             ],
             [
                 'title' => 'Субботники',
-                'url' => 'meeting',
+                'url' => '/meeting',
                 'status' => 1,
                 'sort' => 500,
                 
             ],
             [
                 'title' => 'Новости',
-                'url' => 'article',
+                'url' => '/article',
                 'status' => 1,
                 'sort' => 500,
             ],
             [
                 'title' => 'Добровольцы',
-                'url' => 'volunteer',
+                'url' => '/volunteer',
                 'status' => 1,
                 'sort' => 500,
             ],
             [
                 'title' => 'Полезные статьи',
-                'url' => 'question',
+                'url' => '/question',
                 'status' => 1,
                 'sort' => 500,
             ],
             [
                 'title' => 'Контакты',
-                'url' => 'contact',
+                'url' => '/contact',
                 'status' => 1,
                 'sort' => 500,
             ],

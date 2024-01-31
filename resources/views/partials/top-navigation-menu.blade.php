@@ -3,7 +3,7 @@
 	<div class="flex flex-wrap xl:grid grid-cols-5 md:items-center xl:items-stretch xl:grid-cols-12 gap-6">
 		<a class="order-1 w-full xl:w-auto xl:order-none py-[13px] px-[7px] rounded-[20px] bg-white flex justify-center items-center mb-5 xl:mb-0 col-span-2"
 			href="/">
-		    <img data-src="img/logo.png" src="img/1x1.png" alt="Чистый Крым">
+		    <img data-src="/images/logo.png" src="/images/1x1.png" alt="Чистый Крым">
 		</a>
 		<div class="w-full col-span-3 xl:col-span-10">
 			<div class="flex justify-between items-center xl:items-stretch xl:grid gap-6 xl:mb-[22px] relative xl:grid-cols-2 3xl:grid-cols-10 top-nav">
@@ -12,12 +12,13 @@
 						class="px-6 py-[14px] rounded-huge bg-white justify-between cursor-pointer hidden xl:flex">
 						<span class="mr-2.5">Меню</span>
 						<button>
-						    <img data-src="img/icons/burger.svg" src="img/1x1.png" alt="burger">
+						    <img data-src="/images/icons/burger.svg" src="/images/1x1.png" alt="burger">
 						</button>
 					</div>
 					<ul x-show="active"
 						class="flex justify-between items-center px-6 py-[14px] rounded-huge bg-white font-inter-500 absolute z-[1] w-full text-xs right-0 2xl:text-sm 3xl:text-base">
                         @forelse ($menu->all() as $item)
+                        
                             <li><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif"> {{ $item->label()  }}</a></li>
                         @empty
                         @endforelse
@@ -33,7 +34,7 @@
                                 </form>
                             </li>
                         @endif
-						<img @click="active = !active" class="cursor-pointer" src="img/icons/close.svg" alt="">
+						<img @click="active = !active" class="cursor-pointer" src="/images/icons/close.svg" alt="">
 					</ul>
 					<div class="humb xl:hidden bg-white rounded-standart p-4">
 						<div class="hamb__field">
@@ -44,11 +45,11 @@
 					</div>
 				</nav>
 				<form action="{{ route('search') }}"
-					class="text-gray-text font-inter-500 px-6 py-3 bg-white relative rounded-huge items-center col-span-3 hidden 3xl:flex 5xl:col-span-4">
-					<input class="outline-none" type="text" placeholder="Поиск свалки">
-					<a class="cursor-pointer absolute right-6" href="#">
-						<img data-src="img/icons/search.svg" class="w-5 h-5" src="img/1x1.png" alt="search">
-					</a>
+					class="text-custom-gray-text font-inter-500 px-6 py-3 bg-white relative rounded-huge items-center col-span-3 hidden 3xl:flex 5xl:col-span-4">
+					<input class="outline-none" name="search" type="text" placeholder="Поиск свалки">
+					<button class="cursor-pointer absolute right-6" type="submit">
+						<img data-src="/images/icons/search.svg" class="w-5 h-5" src="/images/1x1.png" alt="search">
+					</button>
 				</form>
 				<a class="bg-accent-red text-center text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 request-a-call"
 					href="#">
@@ -58,19 +59,9 @@
 
 			<div class="hidden xl:grid 3xl:grid-cols-10">
                 <x-landfill.landfills-statistic />
+                
                 <div class=" row-span-2 bg-white rounded-[16px] px-5 pt-4 pb-3 3xl:col-span-5 5xl:col-span-6">
-                    <div class="flex justify-between items-center">
-                        <h4 class="text-2xl font-inter-800 mb-2">
-                        Следующий субботник
-                        </h4>
-                        <p class="font-inter-500">
-                        27 января 11:00
-                        </p>
-                    </div>
-                    <div class="flex gap-[6px] py-[6px] ml-1">
-                        <img data-src="img/icons/map-pin.svg" src="img/icons/map-pin.svg" alt="map pin">
-                        <p>г. Симферополь, Сакский проезд, 3</p>
-                    </div>
+                    <x-meeting.meeting-next />
                 </div>
 			</div>
         </div>
