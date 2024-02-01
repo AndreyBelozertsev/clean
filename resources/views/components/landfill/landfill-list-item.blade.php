@@ -17,7 +17,7 @@
     </div>
     <div class="py-2.5 flex flex-col justify-between">
         <h4 class="font-inter-600 uppercase tracking-[-0.8px] mb-2.5 leading-none">
-            <a href="{{ route('landfill.show',['slug' => $landfill->slug]) }}">{{ $landfill->address  }}</a>
+            <a href="{{ route('landfill.show',['slug' => $landfill->slug]) }}">{{ $landfill->address }}</a>
         </h4>
         <p class="text-[15px] mb-4 leading-none">{{ $landfill->city->title }}</p>
         <a href="{{ route('landfill.index',['category' => $landfill->category->slug]) }}" class="py-2 px-3 mb-4 rounded-standart text-sm text-white w-fit flex gap-1 items-center custom-bg-{{ config('const.landfill_category.colors.' . $landfill->category->slug, 'fuchsia-500') }}">

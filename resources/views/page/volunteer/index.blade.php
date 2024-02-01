@@ -16,7 +16,7 @@
                         @php
                             $img = asset('/images/no-img.svg');
                             if($volunteer->thumbnail){
-                                $img = makeThumbnail('storage/' . $volunteer->thumbnail, '600x600' );
+                                $img = makeThumbnail('storage/' . $volunteer->thumbnail, '600x600', 'fit' );
                             }
                         @endphp
                         <div class="p-2 bg-premium rounded-standart flex gap-3 items-center flex-wrap flex-col md:flex-nowrap justify-center">

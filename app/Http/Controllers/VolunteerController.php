@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Domain\City\Models\City;
 use Illuminate\Http\Request;
 use App\Events\VolunteerCreated;
+use Illuminate\Support\Facades\Cache;
 use Domain\Volunteer\Models\Volunteer;
 use App\Http\Requests\VolunteerCreateRequest;
 
@@ -27,7 +28,9 @@ class VolunteerController extends Controller
 
     public function create()
     {
-        $cities = City::activeItems()->get();
+        $cities = Cache::rememberForever('city_active_list', function () {
+            return City::activeItems()->get();;
+        });
         return view('page.volunteer.create',['cities' => $cities]);
     }
 

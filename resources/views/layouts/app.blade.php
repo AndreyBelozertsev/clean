@@ -29,7 +29,7 @@
 	<!-- Site header -->
 	<header x-data="{
               active: false
-            }" class="pt-6">
+            }" class="pt-1.5 xl:pt-6">
 		@include('partials.top-navigation-menu')
 	</header>	
 	@yield('content')

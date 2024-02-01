@@ -18,7 +18,6 @@
 					<ul x-show="active"
 						class="flex justify-between items-center px-6 py-[14px] rounded-huge bg-white font-inter-500 absolute z-[1] w-full text-xs right-0 2xl:text-sm 3xl:text-base">
                         @forelse ($menu->all() as $item)
-                        
                             <li><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif"> {{ $item->label()  }}</a></li>
                         @empty
                         @endforelse
@@ -36,7 +35,7 @@
                         @endif
 						<img @click="active = !active" class="cursor-pointer" src="/images/icons/close.svg" alt="">
 					</ul>
-					<div class="humb xl:hidden bg-white rounded-standart p-4">
+					<div class="humb xl:hidden bg-white rounded-standart p-2 sm:p-3 md:p-4">
 						<div class="hamb__field">
                             <div class="bar"></div>
                             <div class="bar"></div>
@@ -51,7 +50,7 @@
 						<img data-src="/images/icons/search.svg" class="w-5 h-5" src="/images/1x1.png" alt="search">
 					</button>
 				</form>
-				<a class="bg-accent-red text-center text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 request-a-call"
+				<a class="bg-accent-red text-center text-xs sm:text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 request-a-call"
 					href="#">
 					Подать жалобу на незаконную свалку
 				</a>
@@ -71,7 +70,7 @@
     <div class="container">
         <ul class="popup-menu__list flex">
             @forelse ($menu->all() as $item)
-                <li class="popup-menu__list-item"><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif"> {{ $item->label()  }}</a></li>
+                <li class="popup-menu__list-item"><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif text-lg font-inter-600"> {{ $item->label()  }}</a></li>
             @empty
             @endforelse
             @if (auth()->check())

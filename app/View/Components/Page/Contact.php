@@ -6,26 +6,19 @@ use Closure;
 use Illuminate\View\Component;
 use Domain\Setting\Models\Setting;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class Contact extends Component
 {
 
-    protected $fields = [
-        'organization', 
-        'inn', 
-        'phone',
-        'email',
-        'vk',
-        'tg',
-    ];
-
-
     protected function getData()
     {
-        $fields = $this->fields;
-        //return Cache::rememberForever('setting.contacts', function () use($fields) {
-            return Setting::whereIn('key',$fields)->pluck('value', 'key');
-        //});
+        return Cache::rememberForever('setting_information', function () {
+            return Setting::whereIn('key', config('const.contact_fields'))
+                ->select(['key', 'value'])
+                ->get()
+                ->pluck('value', 'key');
+        });
     }
     /**
      * Get the view / contents that represent the component.

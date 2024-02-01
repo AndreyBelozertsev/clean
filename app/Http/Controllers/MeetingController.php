@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Domain\Meeting\Models\Meeting;
+use Illuminate\Support\Facades\Cache;
 
 class MeetingController extends Controller
 {
@@ -28,10 +29,13 @@ class MeetingController extends Controller
     public function getMeetings(Request $request)
     {
 
+        $meetings = Cache::rememberForever('meetings_map_list', function () {
+            return Meeting::activeItems()->get()->toArray();
+        });
         return response()->json(
             [
                 'success' =>true,
-                'meetings' => Meeting::activeItems()->get()->toArray()
+                'meetings' => $meetings
             ]
         );
     }

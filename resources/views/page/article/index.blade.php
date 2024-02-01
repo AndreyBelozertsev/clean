@@ -16,7 +16,7 @@
                         @endphp
                         <div class="grid lg:grid-cols-3 gap-0 bg-custom-gray p-2 rounded-standart">
                             <a class="block rounded-t-[24px] lg:rounded-[24px] w-full bg-cover bg-center min-h-[250px]" 
-                                style="background-image: linear-gradient(180deg, rgba(221,217,249,.5) 0%, rgba(201,240,204,.5) 100%),
+                                style="background-image: linear-gradient(100.95deg, rgba(0, 0, 0, 0.8) -1.21%, rgba(0, 0, 0, 0) 97.63%),
                                 url({{ $img }});" 
                                 href="{{ route('article.show', ['slug' => $article->slug]) }}"
                             >

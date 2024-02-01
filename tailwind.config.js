@@ -57,7 +57,6 @@ module.exports = {
           "0px 8px 12px 0px rgba(18, 19, 22, 0.15), 0px 0px 1px 0px rgba(18, 19, 22, 0.31)",
       },
       gridTemplateColumns: {
-        // Simple 16 column grid
         'thumb-block': '200px 1fr',
         'volunteer-block': '298px 1fr',
       }

@@ -11,7 +11,16 @@ class LandfillQueryBuilder extends Builder
     {
         return $this->public()
             ->where('slug', $slug)
-            ->select(['address','slug','content', 'coordinates']);
+            ->with([
+                'category' => fn ($query) => $query
+                    ->active()
+                    ->select(['id','title','slug','thumbnail'])
+            ])
+            ->with([
+                'city' => fn ($query) => $query
+                    ->select(['id','title'])
+            ])
+            ->select(['address','slug','images','created_at','landfill_category_id','city_id','coordinates']);
     }
 
     public function activeItems(): LandfillQueryBuilder

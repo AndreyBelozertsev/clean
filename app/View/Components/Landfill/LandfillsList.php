@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use Domain\Landfill\Models\Landfill;
+use Illuminate\Support\Facades\Cache;
 use Domain\Landfill\Models\LandfillCategory;
 
 class LandfillsList extends Component
@@ -30,6 +31,8 @@ class LandfillsList extends Component
 
     protected function getDataCategories(): Collection
     {
-        return LandfillCategory::activeNoEmptyItems()->get();
+        return Cache::rememberForever('landfill_category_active_no_empty', function () {
+            return LandfillCategory::activeNoEmptyItems()->get();
+        });
     }
 }

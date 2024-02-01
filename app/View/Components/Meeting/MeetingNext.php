@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 use Domain\Meeting\Models\Meeting;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class MeetingNext extends Component
 {
@@ -21,6 +22,14 @@ class MeetingNext extends Component
 
     protected function getData(): Meeting | null
     {
-        return Meeting::nearestEvent()->first();
+        $meeting = Cache::rememberForever('meeting_next', 
+            fn () => Meeting::nearestEvent()->first() );
+
+
+        if($meeting){
+            ($meeting->start_at < date('Y-m-d H:i:s') ) ? Cache::forget('meeting_next') : ''; 
+        }
+
+        return $meeting;
     }
 }

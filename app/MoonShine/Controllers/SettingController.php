@@ -27,6 +27,8 @@ final class SettingController extends MoonShineController
             ];
         }
 
+        Cache::forget('setting_information');
+
         Setting::insert($data);
 
         $this->toast('Настройки успешно сохранены', 'success');

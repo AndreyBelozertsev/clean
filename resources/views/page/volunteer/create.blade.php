@@ -7,6 +7,9 @@
                 <div class="py-[5px] mb-6 md:mb-10">
                     <h1 class="font-inter-800 text-2xl sm:text-3xl lg:text-4xl mb-2 md:mb-4">Заполни анкету и присоеденись к нашей команде</h1>
                 </div>
+                <div class="w-max h-[400px]">
+                    <img class="image-crop w-full h-full" src="/images/news-bg.jpg">
+                </div>
                 <div class="flex justify-center">
                     <form class="mb-8" action="{{ route('volunteer.store') }}" enctype='multipart/form-data' x-data="useForm" x-on:submit.prevent="post">
                         @csrf
@@ -114,7 +117,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection 

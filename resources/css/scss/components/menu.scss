@@ -2,67 +2,67 @@
     display: grid;
     gap: 8px;
     cursor: pointer;
-  }
+}
   
-  .hamb__field .bar {
+.hamb__field .bar {
     height: 4px;
     width: 40px;
     background-color: var(--accent-blue);
     border-radius: 2px;
     margin-left: auto;
     transition: all .5s;
-  }
+}
   
   
-  .bar:nth-child(1) {
+.bar:nth-child(1) {
     width: 80px;
-  }
+}
   
-  .bar:nth-child(2) {
+.bar:nth-child(2) {
     width: 60px;
-  }
+}
   
-  .hamb__field.active .bar {
+.hamb__field.active .bar {
     width: 40px;
     background-color: var(--accent-red);
-  }
+}
   
-  .hamb__field.active .bar:nth-child(1) {
+.hamb__field.active .bar:nth-child(1) {
     width: 40px;
     transform: translateY(12px) rotate(45deg);
-  }
+}
   
-  .hamb__field.active .bar:nth-child(2) {
+.hamb__field.active .bar:nth-child(2) {
     opacity: 0;
-  }
+}
   
-  .hamb__field.active .bar:nth-child(3) {
+.hamb__field.active .bar:nth-child(3) {
     width: 40px;
     transform: translateY(-12px) rotate(-45deg);
-  }
+}
   
-  .popup {
+.popup {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    top: 100px;
+    top: 64px;
     z-index: 50;
     overflow: auto;
     /* overflow-y: scroll; */
     background-color: var(--gray);
     display: none;
-  }
+}
   
-  .popup.top-scroll {
-    top: 100px;
-  }
+.popup.top-scroll {
+    top: 64px;
+}
   
-  .popup.active {
+.popup.active {
     display: block;
-  }
+}
   
-  .popup-menu__list {
+.popup-menu__list {
     padding: 30px 0 15px;
     display: flex;
     flex-direction: column;
@@ -70,28 +70,43 @@
     align-items: center;
     font-size: 14px;
     font-weight: 600;
-  }
+}
   
-  .popup-menu__list-item>a {
+.popup-menu__list-item>a {
     padding: 15px 20px;
     display: block;
-  }
+}
   
-  .popup-menu__list-item:hover>a {
+.popup-menu__list-item:hover>a {
     opacity: .6;
-  }
+}
   
-  .noscroll {
+.noscroll {
     overflow: hidden;
-  }
+}
   
-  .top-nav.active {
+.top-nav.active {
     position: fixed;
     left: 0;
     right: 0;
     background-color: var(--gray);
     top: 0;
-    z-index: 9999;
-    padding: 20px;
-  }
+    z-index: 1020;
+    padding: 6px 16px;
+}
+
+@media (min-width: 960px) {
+    .top-nav.active {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 540px) {
+    .popup.top-scroll {
+        top: 66px;
+    }
+    .popup {
+        top: 66px;
+    }
+}
   

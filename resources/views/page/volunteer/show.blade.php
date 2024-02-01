@@ -4,7 +4,7 @@
     @php
         $img = asset('/images/no-img.svg');
         if($volunteer->thumbnail){
-            $img = makeThumbnail('storage/' . $volunteer->thumbnail, '600x600');
+            $img = makeThumbnail('storage/' . $volunteer->thumbnail, '600x600', 'fit');
         }
     @endphp
     <section class="pt-8 md:pt-16 mb-10 md:mb-20">
@@ -24,7 +24,7 @@
                         </p>
                         @if($volunteer->city)
                             <p>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                                <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">
                                     {{ $volunteer->city->title }}
                                 </span>
                             </p>

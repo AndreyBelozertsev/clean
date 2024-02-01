@@ -52,8 +52,13 @@ if (!function_exists('makeThumbnail')) {
             'day'=> $pathParse[1],
             'method'=>$method,
             'file' =>File::basename($file)
-        ]);
-            
+        ]);    
     }
 }
 
+if (!function_exists('resetLandfillCache')) {
+    function resetLandfillCache( )
+    {
+        Cache::forget('navigation_menu');
+    }
+}

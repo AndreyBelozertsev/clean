@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use Domain\Landfill\Models\Landfill;
+use Illuminate\Support\Facades\Cache;
 use Domain\Landfill\Models\LandfillCategory;
 
 class LandfillsStatistic extends Component
@@ -29,6 +30,8 @@ class LandfillsStatistic extends Component
 
     protected function getData()
     {
-        return LandfillCategory::landfillsCountGroupByCategory()->get();
+        return Cache::rememberForever('landfill_category_statistic', function () {
+            return LandfillCategory::landfillsCountGroupByCategory()->get();
+        });
     }
 }

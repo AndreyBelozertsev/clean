@@ -1,4 +1,32 @@
-.swiper-controls{
+@at-root {
+    :root {
+    --swiper-navigation-size: 24px;
+    //   --swiper-navigation-top-offset: 50%;
+    //   --swiper-navigation-sides-offset: 10px;
+      --swiper-navigation-color: var(--accent-blue);
+      --swiper-pagination-color: var(--accent-blue);
+    //   --swiper-pagination-left: auto;
+    //   --swiper-pagination-right: 8px;
+    //   --swiper-pagination-bottom: 8px;
+    //   --swiper-pagination-top: auto;
+    //   --swiper-pagination-fraction-color: inherit;
+    //   --swiper-pagination-progressbar-bg-color: rgba(0,0,0,0.25);
+    //   --swiper-pagination-progressbar-size: 4px;
+      --swiper-pagination-bullet-size: 12px;
+      --swiper-pagination-bullet-width: 12px;
+      --swiper-pagination-bullet-height: 12px;
+    //   --swiper-pagination-bullet-inactive-color: #000;
+    //   --swiper-pagination-bullet-inactive-opacity: 0.2;
+    //   --swiper-pagination-bullet-opacity: 1;
+    //   --swiper-pagination-bullet-horizontal-gap: 4px;
+    //   --swiper-pagination-bullet-vertical-gap: 6px;
+    }
+  }
+
+
+
+
+.swiper-main .swiper-controls{
     position: absolute;
     height: 40px;
     width: 248px;
@@ -6,12 +34,12 @@
     bottom: 0;
 }
 @media (min-width: 468px) {
-    .swiper-controls{
+    .swiper-main .swiper-controls{
         bottom: 24px;
     }
 }
 
-.swiper-pagination{
+.swiper-main .swiper-pagination{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,33 +48,33 @@
     margin-bottom: 4px;
 }
 
-.swiper-pagination-bullet{
+.swiper-main .swiper-pagination-bullet{
     height: 12px;
     width: 12px;
     background-color: #fff7;
 }
 
-.swiper-pagination-bullet-active{
+.swiper-main .swiper-pagination-bullet-active{
     height: 16px;
     width: 16px;
     background-color: #fff;
 }
 
-.swiper-button-next,
-.swiper-button-prev{
+.swiper-main .swiper-button-next,
+.swiper-main .swiper-button-prev{
     height: 40px;
     width: 40px;
-    top: 14px;
+    top: 6px;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after{
+.swiper-main .swiper-button-next:after,
+.swiper-main .swiper-button-prev:after{
     content: '';
     height: 24px;
     width: 24px;
     background-image: url('../img/icons/arrow.svg');
 }
 
-.swiper-button-prev:after{
+.swiper-main .swiper-button-prev:after{
     transform: rotate(180deg);
 }

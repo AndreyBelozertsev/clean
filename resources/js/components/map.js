@@ -78,6 +78,10 @@ if( document.getElementById('landfill-map-full') ){
 
 //Получаем точки и типы отметок  
 async function getLandfillsData() {
+    let block = document.getElementById('landfill-map-full');
+    if( block.getAttribute('data-landfills') ){
+        return JSON.parse(block.getAttribute('data-landfills'))
+    }
     const res = await fetch('/get-landfills', {
         method: "POST",
         headers: {
@@ -120,7 +124,7 @@ async function initLandfillMapFull() {
     data.landfills.forEach(element => {
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
-        markerElement.src = `storage/${element.category.thumbnail}`;
+        markerElement.src = `/storage/${element.category.thumbnail}`;
         markerElement.onclick = () => alert(element.address);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),

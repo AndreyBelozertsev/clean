@@ -4,15 +4,24 @@
     </a>
     <h2 class="text-2xl sm:text-3xl lg:text-4xl font-inter-800 mb-10">Новости</h2>
     <div>
-        <div class="swiper">
+        <div class="swiper swiper-main">
             <div class="swiper-wrapper">
                 @foreach($articles as $article)
+                    @php
+                        $img = asset('/images/no-img.svg');
+                        if($article->thumbnail){
+                            $img = makeThumbnail('storage/' . $article->thumbnail, '1000x500');
+                        }
+                    @endphp
+
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover rounded-standart p-8 pb-[192px]"
-                            style="background-image: url('/images/news-bg.jpg')"
+                        <div class="bg-no-repeat bg-cover bg-center rounded-standart p-8 pb-[192px]"
+                            style="
+                            background-image:linear-gradient(100.95deg, rgba(0, 0, 0, 0.8) -1.21%, rgba(0, 0, 0, 0) 97.63%),
+                            url('{{ $img }}')"
                         >
                             <h5 class="text-xl lg:text-2xl text-white font-inter-800">
-                                <a href="{{ route('article.show', ['slug' => $article->slug]) }}">Первый летний субботник</a>
+                                <a href="{{ route('article.show', ['slug' => $article->slug]) }}">{{ $article->title }}</a>
                             </h5>
                         </div>
                     </div>

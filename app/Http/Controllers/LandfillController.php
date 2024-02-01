@@ -44,17 +44,24 @@ class LandfillController extends Controller
 
     public function getLandfills()
     {
+        $landfills = Cache::rememberForever('landfills_map_list', function () {
+            return Landfill::activeItems()->get()->toArray();
+        });
         return response()->json(
             [
                 'success' =>true,
-                'landfills' => Landfill::activeItems()->get()->toArray()
+                'landfills' => $landfills
             ]
         );
+
     }
 
     public function create()
     {
-        $cities = City::activeItems()->get();
+        $cities = Cache::rememberForever('city_active_list', function () {
+            return City::activeItems()->get();
+        });
+        
         return view('page.landfill.create',['cities' => $cities]);
     }
 
