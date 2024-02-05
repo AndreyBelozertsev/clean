@@ -17,6 +17,7 @@ class LandfillObserver
         Cache::forget('landfill_category_statistic');
         Cache::forget('landfills_map_list');
         Cache::forget('landfill_category_active_no_empty');
+        Cache::forget('landfills_list_home_page');
     }
  
  
@@ -28,5 +29,6 @@ class LandfillObserver
         Cache::forget('landfill_category_statistic');
         Cache::forget('landfills_map_list');
         Cache::forget('landfill_category_active_no_empty');
+        Cache::forget('landfills_list_home_page');
     }
 }

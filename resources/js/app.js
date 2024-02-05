@@ -12,6 +12,9 @@ import './components/popup';
 import './components/slider';
 import './components/image-crop';
 
+// import './components/test';
+
+
 
 Alpine.data('useForm', useForm)
 

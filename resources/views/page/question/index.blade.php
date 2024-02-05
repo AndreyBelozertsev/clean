@@ -44,7 +44,6 @@
             </div>
         </section>
     </main>
-    @dump($questions)
 @endsection
 
 

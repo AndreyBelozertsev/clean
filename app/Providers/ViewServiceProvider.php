@@ -25,6 +25,6 @@ class ViewServiceProvider extends ServiceProvider
     {
         View::composer(['partials/top-navigation-menu','layouts.app'], NavigationComposer::class);
         View::composer(['layouts.app'], SettingComposer::class);
-        View::composer(['page.landfill.create'], UuidComposer::class);
+        View::composer(['page.landfill.create', 'partials.modals'], UuidComposer::class);
     }
 }

@@ -26,10 +26,11 @@ class PageResource extends ModelResource
     {
         return [
             Block::make([
-                Text::make('Заголовок','title'),
+                Text::make('Заголовок','title')
+                    ->required(),
 
                 TinyMce::make('Содержание','content')
-                    ->readonly(),
+                    ->hideOnIndex(),
                     
                 Switcher::make('Активный', 'status')
             ]),
@@ -38,6 +39,8 @@ class PageResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'title' => ['required', 'string', 'min:3']
+        ];
     }
 }

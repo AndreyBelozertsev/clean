@@ -4,9 +4,10 @@ namespace App\View\Components\Article;
 
 use Closure;
 use Illuminate\View\Component;
-use Illuminate\Support\Collection;
 use Domain\Article\Models\Article;
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
 class ArticleSlider extends Component
 {
@@ -20,6 +21,8 @@ class ArticleSlider extends Component
 
     protected function getData(): Collection
     {
-        return Article::activeItems()->limit(4)->oldest()->get();
+        return Cache::rememberForever('article_slider', function () {
+            return Article::activeItems()->limit(4)->oldest()->get();
+        });
     }
 }

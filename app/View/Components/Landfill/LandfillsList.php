@@ -26,7 +26,9 @@ class LandfillsList extends Component
 
     protected function getDataLandfills(): Collection
     {
-        return Landfill::activeItems()->limit(24)->get();
+        return Cache::rememberForever('landfills_list_home_page', function () {
+            return Landfill::activeItems()->limit(24)->get();
+        });
     }
 
     protected function getDataCategories(): Collection

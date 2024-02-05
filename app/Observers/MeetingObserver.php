@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use Domain\Meeting\Models\Meeting;
+use Illuminate\Support\Facades\Cache;
 
 
 class MeetingObserver

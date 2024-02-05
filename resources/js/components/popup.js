@@ -92,7 +92,7 @@ if (document.querySelector(".img-input")) {
   const imgPlace = document.querySelector(".img-place");
 
   const defaultInner = `
-  <img class="p-2 mb-3" src="img/icons/file-image.svg" alt="doc">
+  <img class="p-2 mb-3" src="/images/icons/file-image.svg" alt="doc">
   <p class="text-sm text-default mb-1">
     <span class="mr-1 text-accent-b">
       Выберите фото

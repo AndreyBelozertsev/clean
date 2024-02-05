@@ -99,6 +99,15 @@ async function initLandfillMapFull() {
 
     const data = await getLandfillsData();
 
+    let center = [34.61165060017223, 45.2448782299429];
+    let zoom = 8;
+    
+
+    if(data.landfills.length == 1){
+        center = data.landfills[0].coordinates.split(',');
+        zoom = 11;
+    }
+
     const {YMap, YMapDefaultSchemeLayer, YMapControls, YMapDefaultFeaturesLayer, YMapListener,YMapMarker } = ymaps3;
 
     const {YMapZoomControl} = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
@@ -106,8 +115,8 @@ async function initLandfillMapFull() {
     // Создание экземпляра карты.
     const map = new ymaps3.YMap(document.getElementById('landfill-map-full'), {
         location: {
-            center: [34.61165060017223, 45.2448782299429],
-            zoom: '8',
+            center: center,
+            zoom: zoom,
         }
     });
     // //Элементы контроля
@@ -122,16 +131,33 @@ async function initLandfillMapFull() {
     let markers = [];
 
     data.landfills.forEach(element => {
+
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
         markerElement.src = `/storage/${element.category.thumbnail}`;
-        markerElement.onclick = () => alert(element.address);
+              // Создание заголовка маркера
+        const popupTitle = document.createElement('div');
+        popupTitle.className = 'marker-title';
+        popupTitle.setAttribute("id", `marker-${element.slug}`);
+        
+        popupTitle.innerHTML = `<a href="/landfill/${element.slug}">${element.address}</a>`;
+
+        const popupCloseButton = document.createElement('button');
+        popupCloseButton.className = 'popupCloseButton';
+        popupCloseButton.innerHTML = 'x';
+        popupTitle.appendChild(popupCloseButton);
+
+        const imgContainer = document.createElement('div');
+        imgContainer.appendChild(markerElement);
+        imgContainer.appendChild(popupTitle);
+
+        imgContainer.onclick = () => mapPopupToggle(element.slug);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),
-            clusterCaption: element.category.slug, 
-        },markerElement) 
+        },imgContainer) 
         markers.push(marker);
         map.addChild(marker);
+
     });
 
     const block = Array.from(document.getElementsByClassName('filter-button'));
@@ -183,6 +209,14 @@ async function initMeetingMapFull() {
 
     const data = await getMeetingsData();
 
+    let center = [34.61165060017223, 45.2448782299429];
+    let zoom = 8;
+
+    if(data.meetings.length == 1){
+        center = data.meetings[0].coordinates.split(',');
+        zoom = 11;
+    }
+
     const {YMap, YMapDefaultSchemeLayer, YMapControls, YMapDefaultFeaturesLayer, YMapListener,YMapMarker } = ymaps3;
 
     const {YMapZoomControl} = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
@@ -190,8 +224,8 @@ async function initMeetingMapFull() {
     // Создание экземпляра карты.
     const map = new ymaps3.YMap(document.getElementById('meeting-map-full'), {
         location: {
-            center: [34.61165060017223, 45.2448782299429],
-            zoom: '8',
+            center: center,
+            zoom: zoom,
         }
     });
     // //Элементы контроля
@@ -208,11 +242,60 @@ async function initMeetingMapFull() {
         const markerElement = document.createElement('img');
         markerElement.className = 'icon-marker';
         markerElement.src = '/images/icons/map-pin.svg';
-        markerElement.onclick = () => alert(element.title);
+              // Создание заголовка маркера
+        const popupTitle = document.createElement('div');
+        popupTitle.className = 'marker-title';
+        popupTitle.setAttribute("id", `marker-${element.slug}`);
+        
+        popupTitle.innerHTML = `<a href="/meeting/${element.slug}">${element.title} </a>`;
+
+        const popupCloseButton = document.createElement('button');
+        popupCloseButton.className = 'popupCloseButton';
+        popupCloseButton.innerHTML = 'x';
+
+        popupTitle.appendChild(popupCloseButton);
+
+
+        // Контейнер для элементов маркера
+        const imgContainer = document.createElement('div');
+        imgContainer.appendChild(markerElement);
+        imgContainer.appendChild(popupTitle);
+
+        imgContainer.onclick = () => mapPopupToggle(element.slug);
         const marker = new YMapMarker({
             coordinates: element.coordinates.split(','),
-        },markerElement) 
+        },imgContainer) 
         map.addChild(marker);
     });
 
+}
+
+ 
+function mapPopupToggle(slug){
+    if(! (event.target.classList.contains("icon-marker") || event.target.classList.contains("popupCloseButton"))){
+        return
+    }
+    const layout = event.target.closest('ymaps');
+
+    
+    
+    const box = document.getElementById(`marker-${slug}`);
+    if(box.style.display == 'block'){
+        layout.style.zIndex = 0;
+        box.style.display = 'none';
+    }else{
+        layout.style.zIndex = 1;
+        box.style.display = 'block';
+        console.log(getTranslateZ(layout.style.transform));
+
+        console.log( layout.querySelector('.marker-title').offsetHeight );
+    }
+}
+
+
+function getTranslateZ(transform)
+{
+        let zT = transform.match(/translateZ\(([0-9]+(px|em|%|ex|ch|rem|vh|vw|vmin|vmax|mm|cm|in|pt|pc))\)/);
+    return zT ? zT[1] : '0';
+    //Return the value AS STRING (with the unit)
 }

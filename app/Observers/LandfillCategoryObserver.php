@@ -2,8 +2,9 @@
 
 namespace App\Observers;
 
-use App\LandfillCategory;
+
 use Illuminate\Support\Facades\Cache;
+use Domain\Landfill\Models\LandfillCategory;
 
 class LandfillCategoryObserver
 {
@@ -15,6 +16,7 @@ class LandfillCategoryObserver
         Cache::forget('landfill_category_statistic');
         Cache::forget('landfills_map_list');
         Cache::forget('landfill_category_active_no_empty');
+        Cache::forget('landfills_list_home_page');
     }
  
  
@@ -26,5 +28,6 @@ class LandfillCategoryObserver
         Cache::forget('landfill_category_statistic');
         Cache::forget('landfills_map_list');
         Cache::forget('landfill_category_active_no_empty');
+        Cache::forget('landfills_list_home_page');
     }
 }

@@ -7,9 +7,6 @@
                 <div class="py-[5px] mb-6 md:mb-10">
                     <h1 class="font-inter-800 text-2xl sm:text-3xl lg:text-4xl mb-2 md:mb-4">Заполни анкету и присоеденись к нашей команде</h1>
                 </div>
-                <div class="w-max h-[400px]">
-                    <img class="image-crop w-full h-full" src="/images/news-bg.jpg">
-                </div>
                 <div class="flex justify-center">
                     <form class="mb-8" action="{{ route('volunteer.store') }}" enctype='multipart/form-data' x-data="useForm" x-on:submit.prevent="post">
                         @csrf
@@ -21,6 +18,22 @@
                             x-text="response?.message"
                             x-transition
                         >
+                        </div>
+                        <div>
+                            <div class="image-container h-[350px] w-[60%] mx-auto border border-accent-g mb-5 hidden">
+                                <img class="h-full w-full" src="" alt="" id="image-crop">
+                            </div>
+                            <div class="preview-container h-[250px] w-[250px] border border-accent-r mb-5 mx-auto hidden">
+                                <img class="h-full w-full object-cover" src="" alt="" id="preview-image">
+                            </div>
+                            <div class="flex gap-3">
+                                <input class="hidden" type="file" id="file" accept="image/*">
+                                <label
+                                class="block w-fit px-4 py-2 border border-accent-b rounded cursor-pointer hover:bg-accent-b hover:text-white"
+                                for="file">Выбрать картинку</label>
+                                <button class="px-4 py-2 border border-accent-b rounded cursor-pointer hover:bg-accent-b hover:text-white"
+                                id="preview-btn">Обрезать</button>
+                            </div>
                         </div>
                         <div class="font-manrope-400 text-sm text-custom-gray mb-8">
                             <div class="mb-4 block">

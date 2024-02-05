@@ -5,6 +5,7 @@ use Closure;
 use Illuminate\View\Component;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 use Domain\Volunteer\Models\Volunteer;
 
 class VolunteersList extends Component
@@ -19,10 +20,12 @@ class VolunteersList extends Component
 
     protected function getData(): Collection
     {
-        return Volunteer::activeItems()
-            ->limit(3)
-            ->withSum('meetings','scores')
-            ->orderBy('meetings_sum_scores', 'desc')
-            ->get();
+        return Cache::rememberForever('volunteer_top_list', function () {
+            return Volunteer::activeItems()
+                ->limit(3)
+                ->withSum('meetings','scores')
+                ->orderBy('meetings_sum_scores', 'desc')
+                ->get();
+            });
     }
 }

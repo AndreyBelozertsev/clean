@@ -1,0 +1,43 @@
+.img-wrapper {
+    position: relative;
+    padding-bottom: 50px;
+    width: 100%;
+    border: 1px solid var(--accent-b);
+    border-radius: 6px;
+  }
+  
+  .img-place.active{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+  }
+  
+  .img-delete {
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+    right: 2px;
+    width: 17px;
+    height: 17px;
+    background-color: white;
+    border: 1px solid var(--accent-red);
+    border-radius: 3px;
+    font-size: 15px;
+    color: var(--accent-red);
+    line-height: 1;
+  }
+  
+  .img-wrapper-one {
+    padding-bottom: 50%;
+  }
+  
+  .img-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+  }

@@ -8,13 +8,17 @@ use App\Events\LandfillCreated;
 use App\Observers\CityObserver;
 use App\Observers\PageObserver;
 use App\Events\VolunteerCreated;
+use App\Observers\ArticleObserver;
 use App\Observers\MeetingObserver;
+use Domain\Article\Models\Article;
 use Domain\Meeting\Models\Meeting;
 use App\Observers\LandfillObserver;
+use App\Observers\VolunteerObserver;
 use Domain\Landfill\Models\Landfill;
 use App\Observers\NavigationObserver;
 use Domain\Setting\Models\Navigation;
 use Illuminate\Support\Facades\Event;
+use Domain\Volunteer\Models\Volunteer;
 use Illuminate\Auth\Events\Registered;
 use App\Listeners\SendLandfillNotification;
 use App\Observers\LandfillCategoryObserver;
@@ -49,6 +53,8 @@ class EventServiceProvider extends ServiceProvider
         Page::class => [PageObserver::class],
         Landfill::class => [LandfillObserver::class],
         LandfillCategory::class => [LandfillCategoryObserver::class],
+        Volunteer::class => [VolunteerObserver::class],
+        Article::class => [ArticleObserver::class],
     ];
 
     /**

@@ -45,7 +45,7 @@
 				</nav>
 				<form action="{{ route('search') }}"
 					class="text-custom-gray-text font-inter-500 px-6 py-3 bg-white relative rounded-huge items-center col-span-3 hidden 3xl:flex 5xl:col-span-4">
-					<input class="outline-none" name="search" type="text" placeholder="Поиск свалки">
+					<input class="outline-none w-full" name="search" type="text" placeholder="Поиск свалки">
 					<button class="cursor-pointer absolute right-6" type="submit">
 						<img data-src="/images/icons/search.svg" class="w-5 h-5" src="/images/1x1.png" alt="search">
 					</button>

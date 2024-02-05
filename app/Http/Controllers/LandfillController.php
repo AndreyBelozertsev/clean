@@ -136,6 +136,13 @@ class LandfillController extends Controller
             $data = array_merge($data, unserialize($draft));
         }
         Cache::put('landfill_create_' . $data['uuid'], serialize($data));
+
+        return response()->json(
+            [
+                'success' =>true,
+                'next_action' => 'stage2'
+            ]
+        );
     }
 
     public function stage2(LandfillStage2CreateRequest $request)

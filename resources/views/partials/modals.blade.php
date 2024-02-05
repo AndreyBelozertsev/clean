@@ -16,24 +16,33 @@
         <p class="text-step-color text-sm/[1] text-center mb-8">
           После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
         </p>
-        <form class="mb-8" action="#">
+        <form class="mb-8" action="{{ route('landfill.store.stage1') }}" enctype='multipart/form-data' x-data="useForm" x-on:submit.prevent="post">
+          <input type="hidden" name="uuid" value="{{ $custom_uuid }}">
           <div class="font-manrope-400 text-sm text-custom-gray mb-8">
             <label class="mb-4 block">
               <span class="text-step-txt mb-2 inline-block">Муниципальное образование<span
                   class="text-accent-red ml-1">*</span></span>
-              <select class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" required>
+              <select name="city_id" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" required>
                 <option value="1">Выберите из списка</option>
                 <option value="2">Выберите из списка 2</option>
                 <option value="3">Выберите из списка 3</option>
               </select>
+              <x-input-error name="city_id" />
             </label>
             <label class="mb-4">
               <span class="text-step-txt mb-2 inline-block">Адрес свалки<span class="text-accent-red ml-1">*</span></span>
-              <input class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="email"
+              <input name="address" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="text"
                 placeholder="Укажите адрес" required>
             </label>
+            <x-input-error name="address" />
           </div>
-          <button class="popup-complaint-btn text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full" type="submit">
+          <div>
+              <label for="coordinates">Координаты</label>
+              <div id="landfill-map-single" class="w-full h-[200px]"></div>
+              <x-input-error name="coordinates" />
+              <input id="coordinates" type="hidden" name="coordinates" value="{{ old('coordinates') }}">
+          </div>
+          <button class=" text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full" type="submit">
             Продолжить
           </button>
         </form>
@@ -79,7 +88,7 @@
               <label class="mb-4 p-4 border border-dashed border-accent-blue w-full rounded-[6px] cursor-pointer block">
                 <input class="img-input hidden" multiple="multiple" type="file">
                 <div class="img-place flex flex-col items-center">
-                  <img class="p-2 mb-3" src="img/icons/file-image.svg" alt="doc">
+                  <img class="p-2 mb-3" src="/images/icons/file-image.svg" alt="doc">
                   <p class="text-sm text-default mb-1">
                     <span class="mr-1 text-accent-blue">
                       Выберите фото
@@ -98,7 +107,7 @@
               <p class="text-accent-blue">40% Загрузка · 8.77 MB</p>
             </label>
           </div>
-          <button class="popup-complaint-btn text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full" type="submit">
+          <button class="text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full" type="submit">
             Продолжить
           </button>
         </form>

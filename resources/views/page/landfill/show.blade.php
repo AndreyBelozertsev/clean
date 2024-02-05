@@ -23,7 +23,7 @@
                         <img alt="{{ $landfill->category->title }}" src="{{ isset($landfill->category->thumbnail) ? Storage::disk('public')->url($landfill->category->thumbnail) : '' }}">
                     </p>
                 </div>
-                @if(count($landfill->images))
+                @if($landfill->images && count($landfill->images))
                     <div>
                         <div class="md:px-16 relative">
                             <div class="swiper swiper-default gallery-slider">

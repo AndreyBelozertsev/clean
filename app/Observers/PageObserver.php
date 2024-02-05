@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
-use App\Page;
+
+use Domain\Page\Models\Page;
+use Illuminate\Support\Facades\Cache;
 
 class PageObserver
 {
