@@ -1,4 +1,4 @@
-<div class="bg-white rounded-standart px-6 pt-5 pb-8 col-span-2 flex flex-col justify-between row-span-4 mb-10 xl:mb-0">
+<div class="bg-white rounded-standart px-6 pt-5 pb-8 col-span-2 flex flex-col justify-between row-span-4 mb-10 xl:mb-0 hover:bg-default-hover duration-500 transition ease-in-out">
     <a class="bg-accent-blue flex w-10 h-10 rounded-[50%] justify-center items-center ml-auto" href="{{ route('article.index') }}">
         <img data-src="images/icons/arrow-up-right.svg" src="/images/1x1.png" alt="arrow top">
     </a>

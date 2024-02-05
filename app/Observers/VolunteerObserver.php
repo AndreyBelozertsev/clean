@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use Illuminate\Support\Facades\Cache;
 use Domain\Volunteer\Models\Volunteer;
 
 

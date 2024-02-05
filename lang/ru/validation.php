@@ -133,4 +133,12 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'attributes' => [
+        'password' => 'пароль',
+        'name' => 'имя',
+        'phone'=>'номер телефона',
+        'city_id'=> 'населенный пункт',
+        'thumbnail'=> 'фото',
+        'agree' => 'согласие на обработку персональных данных',
+    ],
 ];

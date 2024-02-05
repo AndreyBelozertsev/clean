@@ -43,7 +43,7 @@
 				</a>
 				<ul class="pt-2.5 font-inter-500 grid max-w-[1064px] gap-10 gap-y-1 sm:grid-cols-2 sm:order-1 lg:order-none xl:gap-y-3 xl:grid-cols-4 3xl:gap-x-20">
 					@forelse ($menu->all() as $item)
-						<li><a href="{{ $item->link() }}" class="text-base/[1] tracking-[-0.8px]"> {{ $item->label()  }}</a></li>
+						<li><a href="{{ $item->link() }}" class="text-base/[1] tracking-[-0.8px] hover:text-other-blue duration-500 transition ease-in-out"> {{ $item->label()  }}</a></li>
 					@empty
 					@endforelse
 				</ul>

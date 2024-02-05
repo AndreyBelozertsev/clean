@@ -9,8 +9,8 @@
 			<div class="flex justify-between items-center xl:items-stretch xl:grid gap-6 xl:mb-[22px] relative xl:grid-cols-2 3xl:grid-cols-10 top-nav">
 			    <nav class="menu order-1 xl:order-none 3xl:col-span-3">
 					<div @click="active = !active" x-show="!active"
-						class="px-6 py-[14px] rounded-huge bg-white justify-between cursor-pointer hidden xl:flex">
-						<span class="mr-2.5">Меню</span>
+						class="group px-6 py-[14px] rounded-huge bg-white justify-between cursor-pointer hidden border border-transparent xl:flex hover:border-other-blue duration-500 transition ease-in-out">
+						<span class="group-hover:text-other-blue mr-2.5">Меню</span>
 						<button>
 						    <img data-src="/images/icons/burger.svg" src="/images/1x1.png" alt="burger">
 						</button>
@@ -18,7 +18,7 @@
 					<ul x-show="active"
 						class="flex justify-between items-center px-6 py-[14px] rounded-huge bg-white font-inter-500 absolute z-[1] w-full text-xs right-0 2xl:text-sm 3xl:text-base">
                         @forelse ($menu->all() as $item)
-                            <li><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif"> {{ $item->label()  }}</a></li>
+                            <li><a href="{{ $item->link() }}" class="@if($item->isActive()) menu_active @endif hover:text-other-blue duration-500 transition ease-in-out"> {{ $item->label()  }}</a></li>
                         @empty
                         @endforelse
                         @if (auth()->check())
@@ -50,7 +50,7 @@
 						<img data-src="/images/icons/search.svg" class="w-5 h-5" src="/images/1x1.png" alt="search">
 					</button>
 				</form>
-				<a class="bg-accent-red text-center text-xs sm:text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 request-a-call"
+				<a class="bg-accent-red text-center text-xs sm:text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 hover:bg-accent-red-hover duration-500 transition ease-in-out request-a-call"
 					href="#">
 					Подать жалобу на незаконную свалку
 				</a>
@@ -58,7 +58,6 @@
 
 			<div class="hidden xl:grid 3xl:grid-cols-10">
                 <x-landfill.landfills-statistic />
-                
                 <div class=" row-span-2 bg-white rounded-[16px] px-5 pt-4 pb-3 3xl:col-span-5 5xl:col-span-6">
                     <x-meeting.meeting-next />
                 </div>

@@ -6,6 +6,7 @@ use Domain\City\Models\City;
 use Illuminate\Http\Request;
 use App\Events\VolunteerCreated;
 use Illuminate\Support\Facades\Cache;
+use Intervention\Image\Facades\Image;
 use Domain\Volunteer\Models\Volunteer;
 use App\Http\Requests\VolunteerCreateRequest;
 
@@ -40,8 +41,20 @@ class VolunteerController extends Controller
 
         if($request->hasFile('thumbnail'))
         {
-            $data['thumbnail'] = $request->file('thumbnail')->store(getUploadPath('volunteer'),'public');            
+
+            $crop = $data['crop'];
+            $data['thumbnail'] = $request->file('thumbnail')->store(getUploadPath('volunteer'),'public');  
+            
+            $img = Image::make('storage/' . $data['thumbnail'])
+                ->crop(
+                    $crop['width'], 
+                    $crop['height'], 
+                    $crop['x'], 
+                    $crop['y'])
+                ->save('storage/' . $data['thumbnail']);
+    
         }
+        unset($data['crop']);
         $volunteer = Volunteer::create($data);
 
         event(new VolunteerCreated($volunteer));

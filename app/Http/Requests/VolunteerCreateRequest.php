@@ -21,10 +21,23 @@ class VolunteerCreateRequest extends FormRequest
             'name' => ['required','string', 'max:50'],
             'phone' => ['required','digits:11'],
             'content' => ['sometimes','string','nullable', 'max:1500'],
-            'thumbnail' => ['required', 'image','mimes:jpeg,png,jpg,gif,svg','max:4096'],
+            'thumbnail' => ['required', 'image','mimes:jpeg,png,jpg','max:4096', 'dimensions:min_width=600,min_height=600'],
+            'crop' => ['required','array'],
+            'crop.x' => ['required', 'integer'],
+            'crop.y' => ['required', 'integer'],
+            'crop.width' => ['required', 'integer'],
+            'crop.height' => ['required', 'integer'],
             'city_id' => ['required','numeric', 'max:' . City::max('id')],
+            'agree' => ['required','accepted'],
         ];
     }
+
+    public function messages(): array
+{
+    return [
+        'crop.*.*' => 'Не верный формат',
+    ];
+}
 
         /**
      * Prepare the data for validation.

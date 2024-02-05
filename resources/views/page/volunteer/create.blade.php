@@ -19,39 +19,45 @@
                             x-transition
                         >
                         </div>
-                        <div>
-                            <div class="image-container h-[350px] w-[60%] mx-auto border border-accent-g mb-5 hidden">
-                                <img class="h-full w-full" src="" alt="" id="image-crop">
-                            </div>
-                            <div class="preview-container h-[250px] w-[250px] border border-accent-r mb-5 mx-auto hidden">
-                                <img class="h-full w-full object-cover" src="" alt="" id="preview-image">
-                            </div>
-                            <div class="flex gap-3">
-                                <input class="hidden" type="file" id="file" accept="image/*">
-                                <label
-                                class="block w-fit px-4 py-2 border border-accent-b rounded cursor-pointer hover:bg-accent-b hover:text-white"
-                                for="file">Выбрать картинку</label>
-                                <button class="px-4 py-2 border border-accent-b rounded cursor-pointer hover:bg-accent-b hover:text-white"
-                                id="preview-btn">Обрезать</button>
-                            </div>
-                        </div>
                         <div class="font-manrope-400 text-sm text-custom-gray mb-8">
-                            <div class="mb-4 block">
+                            <div class="mb-4">
                                 <label>
                                     <span class="text-step-txt mb-2 inline-block">Имя
                                         <span class="text-accent-red ml-1">*</span>
                                     </span>
-                                    <input name="name" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="text"
+                                    <input name="name" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" type="text"
                                     placeholder="Укажите ваше имя" required>
                                 </label>
                                 <x-input-error name="name" />
                             </div>
-                            <div class="mb-4 block">
+                            <div class="mb-4" id="crop_block">
+                                <div class="image-container h-[350px] w-[60%] mx-auto border border-accent-g mb-5 hidden">
+                                    <img class="h-full w-full" src="" alt="" id="image-crop">
+                                </div>
+                                <div class="preview-container h-[250px] w-[250px] border border-accent-r mb-5 mx-auto hidden">
+                                    <img class="h-full w-full object-cover" src="" alt="" id="preview-image">
+                                </div>
+                                <div class="flex gap-3">
+                                    <input name="thumbnail" class="hidden" type="file" accept="image/*" id="thumbnail">
+                                    <input name="crop[width]" class="hidden" type="text">
+                                    <input name="crop[height]" class="hidden" type="text">
+                                    <input name="crop[x]" class="hidden" type="text">
+                                    <input name="crop[y]" class="hidden" type="text">
+
+                                    <label
+                                    class="block w-fit px-4 py-2 border border-accent-b rounded cursor-pointer"
+                                    for="thumbnail">Выбрать фото</label>
+                                    <button class="px-4 py-2 border border-accent-b rounded cursor-pointer hidden"
+                                    id="preview-btn">Обрезать</button>
+                                </div>
+                                <x-input-error name="thumbnail" />
+                            </div>
+                            <div class="mb-4">
                                 <label>
                                     <span class="text-step-txt mb-2 inline-block">Номер телефона
                                         <span class="text-accent-red ml-1">*</span>
                                     </span>
-                                    <input name="phone" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="tel"
+                                    <input name="phone" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full phone-number active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" type="tel"
                                     placeholder="Укажите контактный номер" required>
                                 </label>
                                 <x-input-error name="phone" />
@@ -63,7 +69,7 @@
                                     <span class="text-step-txt mb-2 inline-block">Муниципальное образование<span
                                         class="text-accent-red ml-1">*</span>
                                     </span>
-                                    <select name="city_id" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" required>
+                                    <select name="city_id" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" required>
                                         @foreach($cities as $city)
                                             <option value="{{ $city->id }}">{{ $city->title }}</option>
                                         @endforeach
@@ -71,43 +77,16 @@
                                 </label>
                             </div>
 
-                            <div class="mb-4 block">
+                            <div class="mb-4">
                                 <label>
                                     <span class="text-step-txt mb-2 inline-block">Несколько слов о себе</span>
                                     <textarea
                                         name="content"
-                                        class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full bg-[#f8f8f8] max-h-12"
+                                        class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full bg-[#f8f8f8] max-h-12 active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active"
                                         placeholder="Дополнительная информация"></textarea>
                                 </label>
                                 <x-input-error name="content" />
                             </div>
-                            <div class="font-manrope-400 text-sm mb-8">
-                                <div class="mb-2">
-                                    <p class="text-step-txt mb-2">Загрузите фотографии</p>
-                                    <label class="mb-4 p-4 border border-dashed border-accent-blue w-full rounded-[6px] cursor-pointer block">
-                                        <input class="img-input hidden" name="thumbnail" type="file" id="thumbnail" accept="image/*">
-                                        <div class="img-place flex flex-col items-center">
-                                        <img class="p-2 mb-3" src="img/icons/file-image.svg" alt="doc">
-                                            <p class="text-sm text-default mb-1">
-                                                <span class="mr-1 text-accent-blue">
-                                                Выберите фото
-                                                </span>
-                                                или перетащите
-                                            </p>
-                                            <p class="text-xs">
-                                                (Максимальный размер файла: 25 MB)
-                                            </p>
-                                        </div>
-                                    </label>
-                                </div>
-                                <x-input-error name="thumbnail" />
-                                <label class="preview p-4 w-full border border-step-color rounded-[12px] cursor-pointer block">
-                                    <p class="mb-2 font-inter-700 overflow-ellipsis w-full whitespace-nowrap overflow-hidden">
-                                        img_dlinnoenazvanie_chtoby_pokazanm.jpg</p>
-                                    <p class="text-accent-blue">40% Загрузка · 8.77 MB</p>
-                                </label>
-                            </div>
-
                             <div>
                                 <label class="checkbox-label mb-4 flex gap-2 items-center cursor-pointer">
                                     <input name="agree" class="checkbox-main hidden" type="checkbox" id="check">
@@ -120,8 +99,9 @@
                                     <p class="w-full text-step-txt">
                                         Согласен с <a class="underline" href="#">Политикой обработки персональных данных</a>
                                     </p>
-                                    <x-input-error name="agree" />
+                                    
                                 </label>
+                                <x-input-error name="agree" />
                             </div>
                         </div>
                         <button class="text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full" type="submit">

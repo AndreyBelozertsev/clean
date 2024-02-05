@@ -23,7 +23,7 @@ class LandfillController extends Controller
 
     public function index()
     {
-        $landfills = Landfill::activeItems()->paginate(10)->withQueryString();
+        $landfills = Landfill::activeItems()->paginate(24)->withQueryString();
         $categories = LandfillCategory::activeNoEmptyItems()->get();
         return view('page.landfill.index',[
             'landfills' => $landfills,

@@ -11,6 +11,7 @@ use MoonShine\Fields\Date;
 use MoonShine\Fields\Text;
 use Illuminate\Support\Str;
 use MoonShine\Fields\Image;
+use Domain\City\Models\City;
 use MoonShine\Fields\Number;
 use MoonShine\Decorations\Tab;
 use MoonShine\Fields\Switcher;
@@ -70,6 +71,7 @@ class MeetingResource extends ModelResource
                                 resource: new CityResource()
                         )
                             ->searchable()
+                            ->required()
                             ->badge('purple'),
 
                         Date::make('Дата и время начала', 'start_at')
@@ -93,6 +95,17 @@ class MeetingResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'title' => ['required','string','max:150'],
+            'address' => ['required','string','max:180'],
+            'thumbnail' => ['nullable', 'image','mimes:jpeg,png,jpg','max:4096'],
+            'city_id' => ['required','numeric', 'max:' . City::max('id')],
+            'name' => [ 'nullable','string', 'max:50'],
+            'phone' => ['nullable','digits:11'],
+            'coordinates' => ['required'],
+            'scores' => [],
+            'city_id' => ['required','numeric', 'max:' . City::max('id')],
+            'content' => ['sometimes','string','nullable', 'max:1500'],
+        ];
     }
 }                               

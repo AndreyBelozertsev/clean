@@ -43,9 +43,17 @@ class CityResource extends ModelResource
     public function rules(Model $item): array
     {
         return [
-            'title' => ['required', 'max:200'],
+            'title' => ['required', 'max:100'],
             'sort' => ['required','integer'],
             'status' => ['required','boolean']
         ];
     }
 }
+
+
+// $table->id();
+// $table->string('title');
+// $table->string('slug')->unique();
+// $table->integer('sort')->default(500)->nullable();
+// $table->boolean('status')->default(true);
+// $table->timestamps();

@@ -41,6 +41,7 @@ class LandfillCategoryResource extends ModelResource
                     ->default(500),
                     
                 Switcher::make('Активный', 'status')
+                    ->default(true)
             ]),
         ];
     }
@@ -48,10 +49,13 @@ class LandfillCategoryResource extends ModelResource
     public function rules(Model $item): array
     {
         return [
-            'title' => ['required', 'max:200'],
+            'title' => ['required', 'max:150'],
             'thumbnail' => ['sometimes','image','mimes:jpeg,png,jpg,gif,svg','max:4096','nullable'],
             'content' => [],
             'status' => ['required','boolean']
         ];
     }
 }
+
+
+

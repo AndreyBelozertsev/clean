@@ -14,9 +14,10 @@ use MoonShine\Fields\Text;
 use Illuminate\Support\Str;
 use MoonShine\Fields\Field;
 use MoonShine\Fields\Image;
+use Domain\City\Models\City;
 use MoonShine\Fields\TinyMce;
-use MoonShine\Fields\Textarea;
 
+use MoonShine\Fields\Textarea;
 use MoonShine\Decorations\Block;
 use Illuminate\Http\UploadedFile;
 use App\MoonShine\Fields\MapField;
@@ -46,6 +47,7 @@ class LandfillResource extends ModelResource
 
                 Text::make('Номер телефона заявителя','phone')
                     ->hideOnIndex()
+                    ->hint('В формате: 79781234567')
                     ->readonly(),
 
                 Date::make('Дата добавления', 'created_at')
@@ -104,6 +106,7 @@ class LandfillResource extends ModelResource
                     
                 Enum::make('Статус публикации','status') 
                     ->attach(StatusEnum::class)
+                    ->default('moderation')
                     ->sortable(),
             ]),
         ];
@@ -117,6 +120,13 @@ class LandfillResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'address' => ['required','string','max:180'],
+            'city_id' => ['required','numeric', 'max:' . City::max('id')],
+            'name' => ['required','string', 'max:50'],
+            'phone' => ['required','digits:11'],
+            'content' => ['sometimes','string','nullable', 'max:1500'],
+            'status' => [],
+        ];
     }
-}
+} 

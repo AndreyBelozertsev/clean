@@ -20,7 +20,7 @@ class LandfillQueryBuilder extends Builder
                 'city' => fn ($query) => $query
                     ->select(['id','title'])
             ])
-            ->select(['address','slug','images','created_at','landfill_category_id','city_id','coordinates']);
+            ->select(['address','slug','images','created_at','updated_at','landfill_category_id','city_id','coordinates']);
     }
 
     public function activeItems(): LandfillQueryBuilder
@@ -42,6 +42,6 @@ class LandfillQueryBuilder extends Builder
                 $query->whereRelation('category','slug','=',request()->get('category'));
             })
             ->orderBy('created_at', 'desc')
-            ->select(['address','slug','images','created_at','landfill_category_id','city_id','coordinates']);
+            ->select(['address','slug','images','created_at','updated_at','landfill_category_id','city_id','coordinates']);
     }
 }

@@ -19,7 +19,7 @@
                                 $img = makeThumbnail('storage/' . $volunteer->thumbnail, '600x600', 'fit' );
                             }
                         @endphp
-                        <div class="p-2 bg-premium rounded-standart flex gap-3 items-center flex-wrap flex-col md:flex-nowrap justify-center">
+                        <div class="p-2 bg-premium rounded-standart flex gap-3 items-center flex-wrap flex-col md:flex-nowrap justify-center hover:bg-premium-hover duration-500 transition ease-in-out">
                             <a href="{{ route('volunteer.show', ['slug' => $volunteer->slug]) }}" class="block max-h-[200px] max-w-[200px] w-full h-full border-[3px] border-accent-blue p-1 rounded-[50%]">
                                 <img class="rounded-[50%] h-full w-full" src="{{ $img }}" alt="{{ $volunteer->title  }}">
                             </a>

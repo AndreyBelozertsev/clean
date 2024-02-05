@@ -1,83 +1,64 @@
 import 'cropperjs/dist/cropper.css';
 import Cropper from 'cropperjs';
 
+const cropperImgBlock = document.getElementById('crop_block');
 
-
-// const image = document.querySelector('.image-crop');
-// if(image){
-//     const cropper = new Cropper(image, {
-//     aspectRatio: 1 / 1,
-//     autoCrop: true,
-//     minCropBoxWidth:150,
-//     minCropBoxHeight:150,
-//     background: false,
-//     zoomable: false,
-//     mouseWheelZoom: false,
-//     touchDragZoom: false,
-//     rotatable: false,
-//     crop(event) {
-//         console.log(event.detail.x);
-//         console.log(event.detail.y);
-//         console.log(event.detail.width);
-//         console.log(event.detail.height);
-//     },
-//     });
-// }
-
-// crop img
-const image = document.getElementById("image-crop");
-if (image) {
-  const fileInput = document.getElementById("file");
-  const imageContainer = document.querySelector(".image-container");
-  const previewButton = document.getElementById("preview-btn");
-  const previewImage = document.getElementById("preview-image");
+if (cropperImgBlock) {
+    const image = cropperImgBlock.querySelector("#image-crop");
+    const fileInput = cropperImgBlock.querySelector("#thumbnail");
+    const imageContainer = cropperImgBlock.querySelector(".image-container");
+    const previewButton = cropperImgBlock.querySelector("#preview-btn");
+    const previewImage = cropperImgBlock.querySelector("#preview-image");
+    const previewImageContainer = cropperImgBlock.querySelector(".preview-container");
   
-  let cropper = "";
-  let fileName = "";
+    let cropper = "";
+    let fileName = "";
   
-  fileInput.onchange = () => {
-    previewImage.src = "";
-  
-    const reader = new FileReader();
-  
-    reader.readAsDataURL(fileInput.files[0]);
-  
-    reader.onload = () => {
-      image.setAttribute("src", reader.result);
-      imageContainer.classList.remove("w-[60%]");
-      imageContainer.classList.add('w-max');
-  
-      if (cropper) {
-        cropper.destroy();
-      }
-  
-      cropper = new Cropper(image, {
-        aspectRatio: 1 / 1,
-        autoCrop: true,
-        minCropBoxWidth: 150,
-        minCropBoxHeight: 150,
-        background: false,
-        zoomable: false,
-        mouseWheelZoom: false,
-        touchDragZoom: false,
-        rotatable: false,
-        crop(event) {
-          console.log(event.detail.x);
-          console.log(event.detail.y);
-          console.log(event.detail.width);
-          console.log(event.detail.height);
-        },
-      });
+    fileInput.onchange = () => {
+        previewImage.src = "";
+        imageContainer.classList.remove("hidden");
+        previewButton.classList.remove("hidden");
+        previewImageContainer.classList.add("hidden");
+        
+        const reader = new FileReader();
+    
+        reader.readAsDataURL(fileInput.files[0]);
+    
+        reader.onload = () => {
+        image.setAttribute("src", reader.result);
+        imageContainer.classList.remove("w-[60%]");
+        imageContainer.classList.add('w-max');
+    
+        if (cropper) {
+            cropper.destroy();
+        }
+    
+        cropper = new Cropper(image, {
+            aspectRatio: 1 / 1,
+            autoCrop: true,
+            minCropBoxWidth: 500,
+            minCropBoxHeight: 500,
+            background: false,
+            zoomable: false,
+            mouseWheelZoom: false,
+            touchDragZoom: false,
+            rotatable: false,
+            crop(event) {
+                cropperImgBlock.querySelector('input[name="crop[x]"').value = Math.round(event.detail.x);
+                cropperImgBlock.querySelector('input[name="crop[y]"').value = Math.round(event.detail.y);
+                cropperImgBlock.querySelector('input[name="crop[width]"').value = Math.round(event.detail.width);
+                cropperImgBlock.querySelector('input[name="crop[height]"').value = Math.round(event.detail.height);
+            },
+        });
+        };
+        fileName = fileInput.files[0].name.split('.')[0];
     };
-    fileName = fileInput.files[0].name.split('.')[0];
-  };
   
-  previewButton.addEventListener('click', (e)=>{
-    e.preventDefault();
-    let imgSrc = cropper.getCroppedCanvas().toDataURL();
-    console.log(fileInput.files[0]);
-    previewImage.src = imgSrc;
-    fileInput.files[0] = imgSrc;
-    console.log(fileInput.files[0]);
-  })
+    previewButton.addEventListener('click', (e)=>{
+        e.preventDefault();
+        imageContainer.classList.add('hidden');
+        previewButton.classList.add("hidden");
+        previewImageContainer.classList.remove("hidden");
+        previewImage.src = cropper.getCroppedCanvas().toDataURL();;
+    })
 }

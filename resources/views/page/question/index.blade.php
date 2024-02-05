@@ -16,7 +16,7 @@
                                     
                                 }
                             @endphp
-                            <div class="p-2 bg-custom-gray rounded-standart min-h-[380px]">
+                            <div class="p-2 bg-custom-gray rounded-standart min-h-[380px] hover:bg-default-hover duration-500 transition ease-in-out">
                                 <div class="h-[200px] overflow-hidden rounded-standart">
                                     <a href="{{ route('question.show', ['slug' => $question->slug]) }}">
                                         <img class="w-full h-full object-cover" src="{{ $img }}" alt="{{ $question->title }}">

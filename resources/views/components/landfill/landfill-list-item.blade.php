@@ -9,7 +9,7 @@
     }
 @endphp
 
-<div class="grid lg:grid-cols-thumb-block p-2 bg-custom-gray rounded-standart gap-3 flex-wrap lg:flex-nowrap justify-center sm:justify-normal">
+<div class="grid lg:grid-cols-thumb-block p-2 bg-custom-gray rounded-standart gap-3 flex-wrap lg:flex-nowrap justify-center sm:justify-normal hover:bg-default-hover duration-500 transition ease-in-out">
     <div class="rounded-[24px] h-[250px] lg:w-[200px] lg:h-[200px] overflow-hidden">
         <a href="{{ route('landfill.show',['slug' => $landfill->slug]) }}">
             <img class="w-full h-full object-cover" alt="{{ $landfill->address }}" src="{{ $img }}">
@@ -27,11 +27,11 @@
         <div class="text-xs font-inter-600">
             <p>
                 Добавлена: 
-                <span class="font-inter-300">12.12.2023</span>
+                <span class="font-inter-300">{{ getHumanDate($landfill->created_at) }}</span>
             </p>
             <p>
                 Обновлена: 
-                <span class="font-inter-300">12.01.2024</span>
+                <span class="font-inter-300">{{ getHumanDate($landfill->updated_at) }}</span>
             </p>
         </div>
     </div>

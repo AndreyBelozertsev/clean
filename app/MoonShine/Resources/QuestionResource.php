@@ -52,6 +52,12 @@ class QuestionResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            'title' => ['required', 'max:200'],
+            'thumbnail' => ['sometimes','image','mimes:jpeg,png,jpg,gif,svg','max:4096','nullable'],
+            'description' => [],
+            'content' => [],
+            'status' => ['required','boolean']
+        ];
     }
 }

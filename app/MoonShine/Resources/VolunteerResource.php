@@ -40,6 +40,11 @@ class VolunteerResource extends ModelResource
                     Tab::make('Общая информация', [
                         Text::make('ФИО','name')
                             ->required(),
+                        
+                        Text::make('Номер телефона','phone')
+                            ->hideOnIndex()
+                            ->hint('В формате: 79781234567')
+                            ->required(),
 
                         Image::make('Фото','thumbnail')
                             ->allowedExtensions(['jpeg','png','jpg','gif','svg'])
@@ -63,6 +68,7 @@ class VolunteerResource extends ModelResource
                             ->hideOnIndex(),
                         
                         Enum::make('Статус публикации','status') 
+                            ->default('moderation')
                             ->attach(StatusEnum::class)
                     ]),
                     Tab::make('Субботники', [
@@ -82,16 +88,6 @@ class VolunteerResource extends ModelResource
         ];
     }
 
-    public function rules(Model $item): array
-    {
-        return [
-            'name' => ['required', 'max:200'],
-            'thumbnail' => ['sometimes','image','mimes:jpeg,png,jpg,gif,svg','max:4096','nullable'],
-            'content' => ['sometimes','string', 'nullable'],
-            'status' => []
-        ];
-    }
-
     public function query(): Builder 
     {
         return parent::query()
@@ -103,4 +99,16 @@ class VolunteerResource extends ModelResource
         return parent::query()
             ->withSum('meetings', 'scores');
     } 
+
+    public function rules(Model $item): array
+    {
+        return [
+            'name' => ['required','string', 'max:50'],
+            'phone' => ['required','digits:11'],
+            'content' => ['sometimes','string','nullable', 'max:1500'],
+            'thumbnail' => ['required', 'image','mimes:jpeg,png,jpg','max:4096', 'dimensions:min_width=600,min_height=600'],
+            'city_id' => ['required','numeric', 'max:' . City::max('id')],
+            'status' => [],
+        ];
+    }
 }

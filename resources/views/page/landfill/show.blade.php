@@ -14,6 +14,7 @@
                                 </span>
                             </p>
                         @endif
+
                     </div>
                     <div class="content">
                         {!! $landfill->content !!}
@@ -22,11 +23,21 @@
                         <span>{{ $landfill->category->title }}</span>
                         <img alt="{{ $landfill->category->title }}" src="{{ isset($landfill->category->thumbnail) ? Storage::disk('public')->url($landfill->category->thumbnail) : '' }}">
                     </p>
+                    <div class="text-xs font-inter-600">
+                        <p>
+                            Добавлена: 
+                            <span class="font-inter-300">{{ getHumanDate($landfill->created_at)  }}</span>
+                        </p>
+                        <p>
+                            Обновлена: 
+                            <span class="font-inter-300">{{ getHumanDate($landfill->updated_at)  }}</span>
+                        </p>
+                    </div>
                 </div>
                 @if($landfill->images && count($landfill->images))
                     <div>
                         <div class="md:px-16 relative">
-                            <div class="swiper swiper-default gallery-slider">
+                            <div class="swiper swiper-default gallery-slider" style="padding:0 32px 40px 32px">
                                 <!-- Additional required wrapper -->
                                 <div class="swiper-wrapper">
                                     @foreach($landfill->images as $image)
