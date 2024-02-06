@@ -39,7 +39,11 @@
                     <x-input-error name="address" />
                 </div>
                 <div class="mb-4">
-                    <label for="coordinates">Координаты</label>
+                    <label>
+                        <p class="text-step-txt mb-2 inline-block">На карте<span 
+                            class="text-accent-red ml-1">*</span>
+                        </p>
+                    </label>
                     <div id="landfill-map-single" class="w-full h-[200px]"></div>
                     <x-input-error name="coordinates" />
                     <input id="coordinates" type="hidden" name="coordinates">
