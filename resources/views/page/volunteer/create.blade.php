@@ -57,7 +57,7 @@
                                     <span class="text-step-txt mb-2 inline-block">Номер телефона
                                         <span class="text-accent-red ml-1">*</span>
                                     </span>
-                                    <input name="phone" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full phone-number active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" autocomplete="on" type="tel"
+                                    <input name="phone" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full phone-number active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" autocomplete="off" type="tel"
                                     placeholder="Укажите контактный номер" required>
                                 </label>
                                 <x-input-error name="phone" />

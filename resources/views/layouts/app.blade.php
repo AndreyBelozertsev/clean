@@ -12,8 +12,8 @@
 	<meta property="og:image" content="{{ isset($seo_information->open_graph) ? $seo_information->open_graph : '' }}"/>
 	<meta property="og:description" content="{{ isset($seo_information->description) ? $seo_information->description : '' }}"/>
 
-	<link rel="icon" href="/template/favicon/favicon.ico" type="image/x-icon">
-  	<link rel="shortcut icon" href="/template/favicon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/images/favicon.svg" type="image/x-icon">
+  	<link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
 
 	<link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#1E1F43">
 

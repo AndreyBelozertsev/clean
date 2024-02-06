@@ -22,7 +22,7 @@
                         <p class="text-step-txt mb-2 inline-block">Муниципальное образование<span
                             class="text-accent-red ml-1">*</span>
                         </p>
-                        <select name="city_id" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" required>
+                        <select name="city_id" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" required>
                             @foreach($cities as $city)
                                 <option value="{{ $city->id }}">{{ $city->title }}</option>
                             @endforeach
@@ -33,12 +33,12 @@
                         <p class="text-step-txt mb-2 inline-block">Адрес свалки<span 
                             class="text-accent-red ml-1">*</span>
                         </p>
-                        <input name="address" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="text"
+                        <input name="address" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" type="text"
                             placeholder="Укажите адрес" required>
                     </label>
                     <x-input-error name="address" />
                 </div>
-                <div>
+                <div class="mb-4">
                     <label for="coordinates">Координаты</label>
                     <div id="landfill-map-single" class="w-full h-[200px]"></div>
                     <x-input-error name="coordinates" />
@@ -151,7 +151,7 @@
                 <div class="font-manrope-400 text-sm text-custom-gray mb-8">
                     <label class="mb-4 block">
                         <p class="text-step-txt mb-2 inline-block">Имя<span class="text-accent-red ml-1">*</span></p>
-                        <input class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="text"
+                        <input class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" type="text"
                           name="name"
                           placeholder="Укажите ваше имя" required>
                         <x-input-error name="name" />
@@ -159,8 +159,9 @@
                     <label class="mb-4 block">
                         <p class="text-step-txt mb-2 inline-block">Номер телефона<span
                             class="text-accent-red ml-1">*</span></p>
-                        <input class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full" type="tel"
+                        <input class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full phone-number active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" type="tel"
                           name="phone"
+                          autocomplete="off" 
                           placeholder="Укажите контактный номер" required>
                         <x-input-error name="phone" />
                     </label>
@@ -168,7 +169,7 @@
                         <span class="text-step-txt mb-2 inline-block">Комментарий</span>
                         <textarea
                           name="content"
-                          class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full bg-[#f8f8f8] max-h-12"
+                          class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full bg-[#f8f8f8] max-h-12 active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active"
                           placeholder="Дополнительная информация"></textarea>
                         <x-input-error name="content" />
                     </label>
