@@ -66,7 +66,7 @@
 						©  {{ date('Y') . ', ' . $setting['organization'] }} проект “Чистый Крым”. Все права защищены
 					</p>
 				@endisset
-				<a href="#" class="pr-[18px]">
+				<a href="/policy" class="pr-[18px]">
 					Политика конфиденциальности
 				</a>
 			</div>
