@@ -8,7 +8,7 @@
                     <h1 class="font-inter-800 text-2xl sm:text-3xl lg:text-4xl mb-2 md:mb-4">{{ $article->title }}</h1>
                     <p>
                         Опубликовано: 
-                        <span class="font-inter-300">12.12.2023</span>
+                        <span class="font-inter-300">{{ getHumanDate($article->created_at)  }}</span>
                     </p>
                 </div>
                 @if($article->thumbnail)
