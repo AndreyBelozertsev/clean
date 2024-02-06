@@ -20,6 +20,7 @@ class LandfillStage3CreateRequest extends FormRequest
             'name' => ['required','string', 'max:50'],
             'phone' => ['required','digits:11'],
             'content' => ['sometimes','string','nullable', 'max:1500'],
+            'agree' => ['required','accepted'],
         ];
     }
 

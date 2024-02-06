@@ -107,7 +107,7 @@ class VolunteerResource extends ModelResource
             'name' => ['required','string', 'max:50'],
             'phone' => ['required','digits:11'],
             'content' => ['sometimes','string','nullable', 'max:1500'],
-            'thumbnail' => ['required', 'image','mimes:jpeg,png,jpg','max:4096', 'dimensions:min_width=600,min_height=600'],
+            'thumbnail' => ['sometimes','required', 'image','mimes:jpeg,png,jpg','max:4096', 'dimensions:min_width=600,min_height=600'],
             'city_id' => ['required','numeric', 'max:' . City::max('id')],
             'status' => [],
         ];
