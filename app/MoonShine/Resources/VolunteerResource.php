@@ -11,6 +11,7 @@ use MoonShine\Fields\Enum;
 use MoonShine\Fields\Text;
 use Illuminate\Support\Str;
 use MoonShine\Fields\Image;
+use Domain\City\Models\City;
 use MoonShine\Fields\Number;
 use MoonShine\Decorations\Tab;
 use MoonShine\Fields\Switcher;
