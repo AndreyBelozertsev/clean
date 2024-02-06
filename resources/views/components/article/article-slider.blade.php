@@ -10,7 +10,7 @@
                     @php
                         $img = asset('/images/no-img.svg');
                         if($article->thumbnail){
-                            $img = makeThumbnail('storage/' . $article->thumbnail, '1000x500');
+                            $img = makeThumbnail('storage/' . $article->thumbnail, '1000x500', 'fit');
                         }
                     @endphp
 
