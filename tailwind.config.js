@@ -21,8 +21,8 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: "20px",
-        xs: "16px",
-        sm: "16px",
+        xs: "4px",
+        sm: "6px",
       },
     },
     fontFamily: {
