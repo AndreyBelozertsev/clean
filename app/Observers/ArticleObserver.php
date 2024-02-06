@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use Domain\Article\Models\Article;
+use Illuminate\Support\Facades\Cache;
 
 
 class ArticleObserver
