@@ -6,7 +6,7 @@ const cropperImgBlock = document.getElementById('crop_block');
 if (cropperImgBlock) {
     const image = cropperImgBlock.querySelector("#image-crop");
     const fileInput = cropperImgBlock.querySelector("#thumbnail");
-    const imageContainer = cropperImgBlock.querySelector(".image-container");
+    const imageContainer = cropperImgBlock.querySelector(".thumbnail-container");
     const previewButton = cropperImgBlock.querySelector("#preview-btn");
     const previewImage = cropperImgBlock.querySelector("#preview-image");
     const previewImageContainer = cropperImgBlock.querySelector(".preview-container");

@@ -1,5 +1,6 @@
 
 import Swal from 'sweetalert2'
+import {openModal, hideAllModals} from './modal.js';
 
 export default () => ({
     response: false,
@@ -26,14 +27,20 @@ export default () => ({
             })
         ).json();
         if(this.response.success){
-            Swal.fire({
-                icon: "success",
-                text: this.response.message,
-                showConfirmButton: true,
-                confirmButtonText: 'Хорошо'
-            }).then((result) => {
-                //window.location.href = '/';
-            });
+            if(this.response.next_action){
+                openModal(this.response.next_action);
+            }
+            else{
+                hideAllModals();
+                Swal.fire({
+                    icon: "success",
+                    text: this.response.message,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Хорошо'
+                }).then((result) => {
+                    window.location.href = '/';
+                });
+            }
         }
     }
 });

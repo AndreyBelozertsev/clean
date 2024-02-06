@@ -88,26 +88,6 @@ class LandfillController extends Controller
         );
     }
 
-    public function storeTest(array $data) :void
-    {
-        if (count(array_intersect_key(array_flip($this->required), $data)) !== count($this->required)) {
-            return;
-        }
-        $data['landfill_category_id'] = 1;
-        unset($data['uuid']);
-        
-        if( !empty($data['images']) )
-        {
-            foreach ($data['images'] as $key => $image) {
-                $data['images'][$key] = getUploadPath('landfill') . '/' . basename($image);
-                Storage::disk('public')->move($image, $data['images'][$key]);
-            }
-        }
-        $landfill = Landfill::create($data);
-        event(new LandfillCreated($landfill));
-        
-    }
-
     public function search(Request $request)
     {
         $landills = Landfill::orWhere('address','LIKE', '%' . $request->search . '%')->public()->get();
@@ -140,7 +120,7 @@ class LandfillController extends Controller
         return response()->json(
             [
                 'success' =>true,
-                'next_action' => 'stage2'
+                'next_action' => 'modal-step2'
             ]
         );
     }
@@ -159,6 +139,13 @@ class LandfillController extends Controller
             $data = array_merge($data, unserialize($draft));
         }
         Cache::put('landfill_create_' . $data['uuid'], serialize($data));
+
+        return response()->json(
+            [
+                'success' =>true,
+                'next_action' => 'modal-step3'
+            ]
+        );
     }
 
     public function stage3(LandfillStage3CreateRequest $request)
@@ -168,7 +155,7 @@ class LandfillController extends Controller
             $data = array_merge($data, unserialize($draft));
         }
 
-        $this->storeTest($data);
+        $this->storeFromStage($data);
 
         Cache::forget('landfill_create_' . $data['uuid']);
 
@@ -178,6 +165,26 @@ class LandfillController extends Controller
                 'message' => 'Спасибо, информация успешно добавлена'
             ]
         );
+    }
+
+
+    public function storeFromStage(array $data) :void
+    {
+        if (count(array_intersect_key(array_flip($this->required), $data)) !== count($this->required)) {
+            return;
+        }
+        $data['landfill_category_id'] = 1;
+        unset($data['uuid']);
+        
+        if( !empty($data['images']) )
+        {
+            foreach ($data['images'] as $key => $image) {
+                $data['images'][$key] = getUploadPath('landfill') . '/' . basename($image);
+                Storage::disk('public')->move($image, $data['images'][$key]);
+            }
+        }
+        $landfill = Landfill::create($data);
+        event(new LandfillCreated($landfill));
     }
 
 }

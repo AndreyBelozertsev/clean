@@ -31,7 +31,7 @@
                                 <x-input-error name="name" />
                             </div>
                             <div class="mb-4" id="crop_block">
-                                <div class="image-container h-[350px] w-[60%] mx-auto border border-accent-g mb-5 hidden">
+                                <div class="thumbnail-container h-[350px] w-[60%] mx-auto border border-accent-g mb-5 hidden">
                                     <img class="h-full w-full" src="" alt="" id="image-crop">
                                 </div>
                                 <div class="preview-container h-[250px] w-[250px] border border-accent-r mb-5 mx-auto hidden">
@@ -57,7 +57,7 @@
                                     <span class="text-step-txt mb-2 inline-block">Номер телефона
                                         <span class="text-accent-red ml-1">*</span>
                                     </span>
-                                    <input name="phone" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full phone-number active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" type="tel"
+                                    <input name="phone" class="py-3 px-4 border border-step-color rounded-[8px] text-step-color w-full phone-number active:border-default-active focus:border-default-active focus:outline-none focus:ring-1 focus:ring-border-default-active" autocomplete="on" type="tel"
                                     placeholder="Укажите контактный номер" required>
                                 </label>
                                 <x-input-error name="phone" />

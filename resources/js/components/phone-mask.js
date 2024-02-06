@@ -5,7 +5,7 @@
         let pos = this.selectionStart;
 
         if (pos < 1) event.preventDefault();
-        let matrix = "+_ (___) ___ ____",
+        let matrix = "+7 (___) ___ ____",
             i = 0,
             def = matrix.replace(/\D/g, ""),
             val = this.value.replace(/\D/g, ""),

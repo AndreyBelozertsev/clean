@@ -62,7 +62,7 @@ class VolunteerController extends Controller
         return response()->json(
             [
                 'success' => true,
-                'message' => 'Спасибо, информация успешно добавлена'
+                'message' => 'Спасибо, за регистрацию. После модерации Ваш профиль будет опубликован на сайте.'
             ]
         );
     }

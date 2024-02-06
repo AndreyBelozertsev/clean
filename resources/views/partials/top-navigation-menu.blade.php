@@ -50,8 +50,10 @@
 						<img data-src="/images/icons/search.svg" class="w-5 h-5" src="/images/1x1.png" alt="search">
 					</button>
 				</form>
-				<a class="bg-accent-red text-center text-xs sm:text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 hover:bg-accent-red-hover duration-500 transition ease-in-out request-a-call"
-					href="#">
+				<a class="bg-accent-red text-center text-xs sm:text-sm md:text-base p-2.5 md:px-7 md:py-[14px] text-white rounded-huge 3xl:col-span-4 5xl:col-span-3 hover:bg-accent-red-hover duration-500 transition ease-in-out modal-open-button"
+					href="#"
+                    data-modal="modal-step1"
+                    >
 					Подать жалобу на незаконную свалку
 				</a>
 			</div>
