@@ -31,11 +31,11 @@
                                 <div class="text-xs font-inter-600 mb-8">
                                     <p>
                                         Опубликовано: 
-                                        <span class="font-inter-300">{{ getHumanDate($article->created_at)  }} </span>
+                                        <span class="font-inter-300">{{ getHumanDate($article->created_at)  }}</span>
                                     </p>
                                 </div>
                                 <div>
-                                    <a class="text-other-blue font-inter-500" href="http://127.0.0.1:8000/landfill">
+                                    <a class="text-other-blue font-inter-500" href="{{ route('article.show', ['slug' => $article->slug]) }}">
                                         Подробнее
                                         <img class="inline-block ml-1" src="/images/icons/vuesax.svg" alt="vuesax">
                                     </a>
