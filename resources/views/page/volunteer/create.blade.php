@@ -97,7 +97,7 @@
                                         </svg>
                                     </div>
                                     <p class="w-full text-step-txt">
-                                        Согласен с <a class="underline" href="#">Политикой обработки персональных данных</a>
+                                        Согласен с <a class="underline" href="/policy">Политикой обработки персональных данных</a>
                                     </p>
                                     
                                 </label>

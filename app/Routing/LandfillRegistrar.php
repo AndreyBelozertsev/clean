@@ -20,7 +20,7 @@ final class LandfillRegistrar implements RouteRegistrar
 
             Route::get('/landfill-map', [LandfillController::class, 'indexMap'])->name('landfill-map.index');
 
-            Route::get('/landfill/create', [LandfillController::class, 'create'])->name('landfill.create');
+           // Route::get('/landfill/create', [LandfillController::class, 'create'])->name('landfill.create');
 
             Route::get('/landfill/{slug}', [LandfillController::class, 'show'])->name('landfill.show');
 
