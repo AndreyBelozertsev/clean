@@ -16,14 +16,11 @@
                         @endif
 
                     </div>
-                    <div class="content">
-                        {!! $landfill->content !!}
-                    </div>
                     <p class="py-2 px-3 mb-4 rounded-standart text-sm text-white w-fit flex gap-1 items-center custom-bg-{{ config('const.landfill_category.colors.' . $landfill->category->slug, 'fuchsia-500') }}">
                         <span>{{ $landfill->category->title }}</span>
                         <img alt="{{ $landfill->category->title }}" src="{{ isset($landfill->category->thumbnail) ? Storage::disk('public')->url($landfill->category->thumbnail) : '' }}">
                     </p>
-                    <div class="text-xs font-inter-600">
+                    <div class="text-xs font-inter-600 mb-4">
                         <p>
                             Добавлена: 
                             <span class="font-inter-300">{{ getHumanDate($landfill->created_at)  }}</span>
@@ -33,6 +30,11 @@
                             <span class="font-inter-300">{{ getHumanDate($landfill->updated_at)  }}</span>
                         </p>
                     </div>
+                    @if($landfill->content)
+                        <div class="content mb-4">
+                            {!! $landfill->content !!}
+                        </div>
+                    @endif
                 </div>
                 @if($landfill->images && count($landfill->images))
                     <div>
