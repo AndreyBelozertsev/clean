@@ -14,7 +14,7 @@
                                 $img = makeThumbnail('storage/' . $article->thumbnail, 'nullx600');
                             }
                         @endphp
-                        <div class="grid lg:grid-cols-3 gap-0 bg-custom-gray p-2 rounded-standart hover:bg-default-hover duration-500 transition ease-in-out">
+                        <div class="grid lg:grid-cols-3 gap-0 bg-custom-gray px-0 py-2 md:px-2 rounded-standart hover:bg-default-hover duration-500 transition ease-in-out">
                             <a class="block rounded-t-[24px] lg:rounded-[24px] w-full bg-cover bg-center min-h-[250px]" 
                                 style="background-image: linear-gradient(100.95deg, rgba(0, 0, 0, 0.8) -1.21%, rgba(0, 0, 0, 0) 97.63%),
                                 url({{ $img }});" 

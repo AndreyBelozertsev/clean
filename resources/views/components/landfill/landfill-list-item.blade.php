@@ -15,7 +15,7 @@
             <img class="w-full h-full object-cover" alt="{{ $landfill->address }}" src="{{ $img }}">
         </a>
     </div>
-    <div class="py-2.5 flex flex-col justify-between">
+    <div class="py-2.5 px-1 md:px-2 lg:px-0 flex flex-col justify-between">
         <h4 class="font-inter-600 uppercase tracking-[-0.8px] mb-2.5 leading-none">
             <a href="{{ route('landfill.show',['slug' => $landfill->slug]) }}">{{ $landfill->address }}</a>
         </h4>
