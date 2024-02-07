@@ -1,6 +1,6 @@
 <div id="modal-step1" style="opacity:0;pointer-events:none" class="modal modal-blur fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div class="modal-overlay absolute w-full h-full "></div>
-    <div class="modal-container w-full md:w-11/12 md:max-w-md max-h-screen mx-auto shadow-lg z-50 overflow-y-auto">
+    <div class="modal-container w-full py-6 md:w-11/12 md:max-w-md max-h-screen mx-auto shadow-lg z-50 overflow-y-auto">
         <div class="rounded-[20px] bg-white border border-popup-bor w-full relative p-8 pt-10 sm:py-10 sm:px-[50px] lg:px-10 lg:pt-6 lg:pb-10">
             <div class="absolute top-4 right-4 cursor-pointer" >
                 <svg class="modal-close" data-modal="modal-step1" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -10,10 +10,10 @@
                 </svg>
             </div>
             <h2 class="py-2 px-4 text-center text-base/[1] sm:text-xl/[1] font-inter-600">
-              Подача жалобы на незаконную свалку
+              Подача жалобы на незаконную свалку
             </h2>
             <p class="text-step-color text-sm/[1] text-center mb-8">
-              После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
+              После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
             </p>
             <form class="mb-8" action="{{ route('landfill.store.stage1') }}" enctype='multipart/form-data' x-data="useForm" x-on:submit.prevent="post">
                 <input type="hidden" name="uuid" value="{{ $custom_uuid }}">
@@ -63,7 +63,7 @@
 
 <div id="modal-step2" style="opacity:0;pointer-events:none" class="modal modal-blur fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div class="modal-overlay absolute w-full h-full "></div>
-    <div class="modal-container w-full md:w-11/12 md:max-w-md max-h-screen mx-auto shadow-lg z-50 overflow-y-auto">
+    <div class="modal-container w-full py-6 md:w-11/12 md:max-w-md max-h-screen mx-auto shadow-lg z-50 overflow-y-auto">
         <div class="rounded-[20px] bg-white border border-popup-bor w-full relative p-8 pt-10 sm:py-10 sm:px-[50px] lg:px-10 lg:pt-6 lg:pb-10">
             <div class="absolute top-4 right-4 cursor-pointer" >
                 <svg class="modal-close" data-modal="modal-step2" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -83,10 +83,10 @@
                 >Назад</span>
             </div>
             <h2 class="pt-6 pb-2 px-4 text-center text-base/[1] sm:text-xl/[1] font-inter-600">
-              Подача жалобы на незаконную свалку
+              Подача жалобы на незаконную свалку
             </h2>
             <p class="text-step-color text-sm/[1] text-center mb-8">
-              После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
+              После получения и проверки информации мы подаем жалобу и требование привести территорию в 2порядок
             </p>
             <form id="landfill-images-form" class="mb-8" action="{{ route('landfill.store.stage2') }}" enctype='multipart/form-data' x-data="useForm" x-on:submit.prevent="post">
                 <input type="hidden" name="uuid" value="{{ $custom_uuid }}">  
@@ -125,7 +125,7 @@
 
 <div id="modal-step3" style="opacity:0;pointer-events:none" class="modal modal-blur fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div class="modal-overlay absolute w-full h-full"></div>
-    <div class="modal-container w-full md:w-11/12 md:max-w-md max-h-screen mx-auto shadow-lg z-50 overflow-y-auto">
+    <div class="modal-container w-full py-6 md:w-11/12 md:max-w-md max-h-screen mx-auto shadow-lg z-50 overflow-y-auto">
         <div class="rounded-[20px] bg-white border border-popup-bor w-full relative p-8 pt-10 sm:py-10 sm:px-[50px] lg:px-10 lg:pt-6 lg:pb-10">
             <div class="absolute top-4 right-4 cursor-pointer" >
                 <svg class="modal-close" data-modal="modal-step3" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -145,10 +145,10 @@
                 >Назад</span>
             </div>
             <h2 class="pt-6 pb-2 px-4 text-center text-base/[1] sm:text-xl/[1] font-inter-600">
-              Подача жалобы на незаконную свалку
+              Подача жалобы на незаконную свалку
             </h2>
             <p class="text-step-color text-sm/[1] text-center mb-8">
-              После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
+              После получения и проверки информации мы подаем жалобу и требование привести территорию в порядок
             </p>
             <form class="mb-8" action="{{ route('landfill.store.stage3') }}" enctype='multipart/form-data' x-data="useForm" x-on:submit.prevent="post">
                 <input type="hidden" name="uuid" value="{{ $custom_uuid }}">  

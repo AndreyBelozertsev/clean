@@ -63,7 +63,7 @@
 			<div class="mt-5 flex justify-between flex-wrap text-xs">
 				@isset( $setting['organization'] )
 					<p class="mb-5 xl:mb-0">
-						©  {{ date('Y') . ', ' . $setting['organization'] }} проект “Чистый Крым”. Все права защищены
+						©  {{ date('Y') . ', ' . $setting['organization'] }} проект "Чистый Крым". Все права защищены
 					</p>
 				@endisset
 				<a href="/policy" class="pr-[18px]">
