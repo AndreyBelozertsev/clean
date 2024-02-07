@@ -66,7 +66,7 @@
     </section>
     <section class="mb-10 md:mb-20">
         <div class="container">
-            <div class="bg-white rounded-standart px-6 py-8">
+            <div class="bg-white rounded-standart px-2 md:px-6 py-8">
                 <div class="flex justify-between items-center">
                     <h4 class="font-inter-800 text-2xl mb-2 md:mb-4">
                         На карте
