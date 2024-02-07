@@ -20,9 +20,11 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "20px",
-        xs: "4px",
-        sm: "6px",
+        DEFAULT: "0px",
+        xs: "0",
+        sm: "4px",
+        md: "12px",
+        lg: "20px",
       },
     },
     fontFamily: {
@@ -66,5 +68,28 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+            maxWidth: '100%',
+              '@screen xl': {
+                maxWidth: '960px',
+              },
+              '@screen 2xl': {
+                maxWidth: '960px',
+              },
+              '@screen 3xl': {
+                maxWidth: '1140px',
+              },
+              '@screen 4xl': {
+                maxWidth: '1200px',
+              },
+              '@screen 5xl': {
+                maxWidth: '1550px',
+              },
+          }
+      })
+    }
+  ]
 }

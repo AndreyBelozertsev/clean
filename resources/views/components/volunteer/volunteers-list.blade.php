@@ -1,4 +1,4 @@
-<div class="bg-premium rounded-standart px-6 py-5 flex flex-col justify-between col-span-3 row-span-2 mb-10 xl:mb-0 3xl:row-span-5 3xl:col-span-1 hover:bg-premium-hover duration-500 transition ease-in-out">
+<div class="bg-premium rounded-standart px-2 md:px-6 py-5 flex flex-col justify-between col-span-3 row-span-2 mb-10 xl:mb-0 3xl:row-span-5 3xl:col-span-1 hover:bg-premium-hover duration-500 transition ease-in-out">
     <a class="bg-white flex w-10 h-10 rounded-[50%] justify-center items-center ml-auto" href="{{ route('volunteer.index') }}">
         <img data-src="/images/icons/arrow-up-right-accent.svg" src="/images/1x1.png" alt="arrow top">
     </a>

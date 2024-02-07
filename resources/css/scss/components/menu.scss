@@ -92,7 +92,7 @@
     background-color: var(--gray);
     top: 0;
     z-index: 1020;
-    padding: 6px 16px;
+    padding: 6px 0;
 }
 
 @media (min-width: 960px) {
@@ -101,7 +101,16 @@
     }
 }
 
-@media (min-width: 540px) {
+@media (min-width: 468px) {
+    .top-nav.active {
+        padding: 4px;
+    }
+}
+
+@media (min-width: 540) {
+    .top-nav.active {
+        padding: 12px;
+    }
     .popup.top-scroll {
         top: 66px;
     }

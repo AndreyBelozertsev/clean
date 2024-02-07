@@ -10,7 +10,7 @@
     <section class="pt-8 md:pt-16 mb-10 md:mb-20">
         <div class="container">
             <div class="grid lg:grid-cols-volunteer-block gap-8">
-                <div class="bg-premium rounded-standart px-6 py-8 flex justify-center w-full h-full">
+                <div class="bg-premium rounded-standart px-2 md:px-6 py-8 flex justify-center w-full h-full">
                     <div class="max-h-[400px] max-w-[400px]  lg:max-h-[250px] lg:max-w-[250px] w-full h-full border-[3px] border-accent-blue p-1 rounded-[50%]">
                         <img class="rounded-[50%] h-full w-full" src="{{ $img }}" alt="{{ $volunteer->name  }}">   
                     </div>
@@ -42,7 +42,7 @@
 
         <section class="mb-10 md:mb-20">
             <div class="container">
-                <div class="bg-white rounded-standart px-6 py-8">
+                <div class="bg-white rounded-standart px-2 md:px-6 py-8">
                     <div class="flex justify-between items-center">
                         <h4 class="font-inter-800 text-2xl mb-2 md:mb-4">
                             Мои субботники

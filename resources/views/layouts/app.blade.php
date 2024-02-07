@@ -36,7 +36,7 @@
 	<!-- Site footer -->
 	<footer class="mb-6">
 		<div class="container">
-		<div class="bg-white px-8 pt-8 pb-5 rounded-standart">
+		<div class="bg-white px-2 md:px-6 pt-8 pb-5 rounded-standart">
 			<div class="flex justify-between gap-5 items-start pb-[50px] border-b border-other-g flex-wrap lg:flex-nowrap">
 				<a class="footer__logo" href="/">
 					<img src="/images/logo.png" alt="Чистый Крым">
