@@ -11,7 +11,7 @@ class QuestionQueryBuilder extends Builder
     {
         return $this->active()
             ->where('slug', $slug)
-            ->select(['title','slug','content','description', 'thumbnail']);
+            ->select(['title','slug','content','images', 'thumbnail']);
     }
 
     public function activeItems(): QuestionQueryBuilder

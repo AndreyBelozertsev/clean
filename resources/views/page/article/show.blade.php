@@ -16,9 +16,12 @@
                         <img class="w-full h-full object-cover" src="{{ makeThumbnail('storage/' . $article->thumbnail, 'nullx600') }}" alt="{{ $article->title  }}">
                     </div>
                 @endif
-                <div class="content">
+                <div class="content mb-12">
                     {!! $article->content !!}
                 </div>
+                @if($article->images && count($article->images))
+                    <x-gallery.gallery-slider :images="$article->images" />
+                @endif
             </div>
         </div>
     </section>

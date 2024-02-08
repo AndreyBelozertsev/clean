@@ -43,6 +43,15 @@ class QuestionResource extends ModelResource
                         return getUploadPath('article') . '/' . Str::random(10) . '.' . $file->extension();
                     })
                     ->allowedExtensions(['jpeg','png','jpg','gif','svg']),
+
+                Image::make('Фото','images') 
+                    ->hideOnIndex()
+                    ->multiple()
+                    ->removable() 
+                    ->customName(function (UploadedFile $file, Image $field){
+                         return getUploadPath('question') . '/' . Str::random(10) . '.' . $file->extension();
+                    })
+                    ->allowedExtensions(['jpeg','png','jpg']),
                     
                 Switcher::make('Активный', 'status')
                     ->default(true)

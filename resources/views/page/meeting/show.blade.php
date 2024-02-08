@@ -47,9 +47,12 @@
                             </p>
                         @endif 
                     </div>
-                    <div class="content">
+                    <div class="content mb-12">
                         {!! $meeting->content !!}
                     </div>
+                    @if($meeting->images && count($meeting->images))
+                        <x-gallery.gallery-slider :images="$meeting->images" />
+                    @endif
                 </div>
             </div>
         </div>

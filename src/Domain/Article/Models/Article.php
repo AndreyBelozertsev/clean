@@ -28,6 +28,10 @@ class Article extends Model
 
     protected $routeName = 'article.show';
 
+    protected $casts = [
+        'images' => 'array'
+    ];
+
     public function newEloquentBuilder($query): ArticleQueryBuilder 
     {
         return new ArticleQueryBuilder($query);

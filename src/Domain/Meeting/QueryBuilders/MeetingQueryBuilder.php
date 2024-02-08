@@ -22,7 +22,7 @@ class MeetingQueryBuilder extends Builder
     {
         return $this->active()
             ->where('slug', $slug)
-            ->select(['title','address','slug','content','coordinates', 'start_at', 'city_id', 'name', 'phone']);
+            ->select(['title','address','slug','content', 'images','coordinates', 'start_at', 'city_id', 'name', 'phone']);
     }
 
     public function nearestEvent(): MeetingQueryBuilder

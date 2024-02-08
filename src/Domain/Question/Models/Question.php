@@ -24,6 +24,9 @@ class Question extends Model
         'thumbnail',
     ];
 
+    protected $casts = [
+        'images' => 'array'
+    ];
 
     protected $routeName = 'question.show';
 

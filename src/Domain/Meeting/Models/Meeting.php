@@ -37,6 +37,10 @@ class Meeting extends Model
 
     protected $routeName = 'meeting.show';
 
+    protected $casts = [
+        'images' => 'array'
+    ];
+
     /**
      * Получить время до начала.
      *

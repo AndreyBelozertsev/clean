@@ -7,9 +7,12 @@
                 <div class="py-[5px] mb-6 md:mb-10">
                     <h1 class="font-inter-800 text-2xl sm:text-3xl lg:text-4xl">{{ $question->title }}</h1>
                 </div>
-                <div class="content">
+                <div class="content mb-12">
                     {!! $question->content !!}
                 </div>
+                @if($question->images && count($question->images))
+                    <x-gallery.gallery-slider :images="$question->images" />
+                @endif
             </div>
         </div>
     </section>

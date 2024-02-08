@@ -11,7 +11,7 @@ class ArticleQueryBuilder extends Builder
     {
         return $this->active()
             ->where('slug', $slug)
-            ->select(['title','slug','content','description', 'thumbnail', 'created_at']);
+            ->select(['title','slug','content','images', 'thumbnail', 'created_at']);
     }
 
     public function activeItems(): ArticleQueryBuilder

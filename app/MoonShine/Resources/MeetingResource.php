@@ -10,6 +10,7 @@ use MoonShine\Fields\ID;
 use MoonShine\Fields\Date;
 use MoonShine\Fields\Text;
 use Illuminate\Support\Str;
+use MoonShine\Fields\Field;
 use MoonShine\Fields\Image;
 use Domain\City\Models\City;
 use MoonShine\Fields\Number;
@@ -73,6 +74,15 @@ class MeetingResource extends ModelResource
                             ->searchable()
                             ->required()
                             ->badge('purple'),
+
+                        Image::make('Фото','images') 
+                            ->hideOnIndex()
+                            ->multiple()
+                            ->removable() 
+                            ->customName(function (UploadedFile $file, Image $field){
+                                 return getUploadPath('meeting') . '/' . Str::random(10) . '.' . $file->extension();
+                            })
+                            ->allowedExtensions(['jpeg','png','jpg']),
 
                         Date::make('Дата и время начала', 'start_at')
                             ->withTime()

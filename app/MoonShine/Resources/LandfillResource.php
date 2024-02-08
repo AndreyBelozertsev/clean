@@ -67,13 +67,11 @@ class LandfillResource extends ModelResource
                 Image::make('Фото','images') 
                     ->hideOnIndex()
                     ->multiple()
-                    //->readonly()
                     ->removable() 
                     ->customName(function (UploadedFile $file, Field $field){
                          return getUploadPath('landfill') . '/' . Str::random(10) . '.' . $file->extension();
                     })
-                    //->disabled()
-                    ,
+                    ->allowedExtensions(['jpeg','png','jpg']),
 
                 BelongsTo::make(
                     'МО',
