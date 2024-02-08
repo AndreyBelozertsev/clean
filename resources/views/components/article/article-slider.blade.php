@@ -15,7 +15,7 @@
                     @endphp
 
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center rounded-standart p-8 pb-[192px]"
+                        <div class="bg-no-repeat bg-cover bg-center rounded-standart p-8 h-[272px]"
                             style="
                             background-image:linear-gradient(100.95deg, rgba(0, 0, 0, 0.8) -1.21%, rgba(0, 0, 0, 0) 97.63%),
                             url('{{ $img }}')"
