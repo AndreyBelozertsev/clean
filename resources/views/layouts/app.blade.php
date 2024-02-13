@@ -37,7 +37,7 @@
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/96460437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->
-
+	<meta name="yandex-verification" content="6aef8eaa68ea9a25" />
 	<script src="https://api-maps.yandex.ru/v3/?apikey={{ env('MOONSHINE_YANDEX_MAP_API') }}&lang=ru_RU"></script>
     @vite(['resources/css/app.css', 'resources/css/scss/main.scss'])
 	
