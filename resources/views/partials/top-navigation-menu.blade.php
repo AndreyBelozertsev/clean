@@ -3,7 +3,7 @@
 	<div class="flex flex-wrap xl:grid grid-cols-5 md:items-center xl:items-stretch xl:grid-cols-12 gap-6">
 		<a class="order-1 w-full xl:w-auto xl:order-none py-[13px] px-[7px] rounded-[20px] bg-white flex justify-center items-center mb-5 xl:mb-0 col-span-2"
 			href="/">
-		    <img data-src="/images/logo.png" src="/images/1x1.png" alt="Чистый Крым">
+		    <img data-src="/images/logo.svg" src="/images/1x1.png" alt="Чистый Крым">
 		</a>
 		<div class="w-full col-span-3 xl:col-span-10">
 			<div class="flex justify-between items-center xl:items-stretch xl:grid gap-6 xl:mb-[22px] relative xl:grid-cols-2 3xl:grid-cols-10 top-nav">

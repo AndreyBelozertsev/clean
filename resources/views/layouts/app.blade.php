@@ -57,7 +57,7 @@
 		<div class="bg-white px-2 md:px-6 pt-8 pb-5 rounded-standart">
 			<div class="flex justify-between gap-5 items-start pb-[50px] border-b border-other-g flex-wrap lg:flex-nowrap">
 				<a class="footer__logo" href="/">
-					<img src="/images/logo.png" alt="Чистый Крым">
+					<img width="200px" src="/images/logo.svg" alt="Чистый Крым">
 				</a>
 				<ul class="pt-2.5 font-inter-500 grid max-w-[1064px] gap-10 gap-y-1 sm:grid-cols-2 sm:order-1 lg:order-none xl:gap-y-3 xl:grid-cols-4 3xl:gap-x-20">
 					@forelse ($menu->all() as $item)
