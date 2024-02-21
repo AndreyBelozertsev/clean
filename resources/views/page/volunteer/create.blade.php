@@ -104,7 +104,7 @@
                                 <x-input-error name="agree" />
                             </div>
                         </div>
-                        <button class="text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full" type="submit">
+                        <button class="text-white py-[14px] px-8 bg-accent-blue rounded-huge w-full disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed" type="submit">
                             Отправить анкету
                         </button>
                     </form>

@@ -16,6 +16,8 @@ export default () => ({
         const responseModal = document.querySelector('#modal-response');
         const responseBlock = document.querySelector('#modal-response .modal-content');
         responseBlock.innerHTML = '';
+        const submitButton = this.$el.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
 
         this.response = await (
             await fetch(this.$el.getAttribute('action'), {
@@ -39,6 +41,10 @@ export default () => ({
                     window.location.href = '/';
                 });
             }
+        }else{
+            submitButton.disabled = false;
         }
+        
+
     }
 });
