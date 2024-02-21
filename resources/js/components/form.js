@@ -1,5 +1,3 @@
-
-import Swal from 'sweetalert2'
 import {openModal, hideAllModals} from './modal.js';
 
 export default () => ({
@@ -15,6 +13,9 @@ export default () => ({
     },
 
     async post() {
+        const responseModal = document.querySelector('#modal-response');
+        const responseBlock = document.querySelector('#modal-response .modal-content');
+        responseBlock.innerHTML = '';
 
         this.response = await (
             await fetch(this.$el.getAttribute('action'), {
@@ -32,12 +33,9 @@ export default () => ({
             }
             else{
                 hideAllModals();
-                Swal.fire({
-                    icon: "success",
-                    text: this.response.message,
-                    showConfirmButton: true,
-                    confirmButtonText: 'Хорошо'
-                }).then((result) => {
+                openModal('modal-response');
+                responseBlock.innerHTML = this.response.message;
+                responseModal.addEventListener("hideModal", function(event) {
                     window.location.href = '/';
                 });
             }

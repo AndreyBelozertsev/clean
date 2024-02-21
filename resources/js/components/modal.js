@@ -46,6 +46,7 @@ export function hideModal(id) {
         modal.style.pointerEvents = 'none';
         modal.style.opacity = '0';
         body.classList.remove('modal-active');
+
         modal.dispatchEvent(new CustomEvent("hideModal", {
             detail: { id: id }
         }));

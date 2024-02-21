@@ -18,7 +18,6 @@
         "cropperjs": "^1.6.1",
         "lightgallery": "^2.7.2",
         "sass": "^1.63.6",
-        "sweetalert2": "11.4.8",
         "swiper": "^11.0.5"
     }
 }
