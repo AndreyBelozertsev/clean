@@ -5,7 +5,7 @@
         <div class="authentication-content">
             <div class="authentication-header">
                 <h1 class="title">
-                    Добро пожаловать в BeeSmart
+                    Добро пожаловать
                 </h1>
 
                 <p class="description">
