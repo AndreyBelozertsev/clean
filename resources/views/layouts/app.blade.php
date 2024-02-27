@@ -87,6 +87,9 @@
 				<a href="/policy" class="pr-[18px]">
 					Политика конфиденциальности
 				</a>
+				<a href="/policy-agree" class="pr-[18px]">
+					Политика обработки персональных данных
+				</a>
 			</div>
 		</div>
 		</div>
